@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FOURWARD · Consulting, training and applied AI</title>
+<meta name="description" content="FOURWARD: strategy, technology and training that help your organization turn what it knows into decisions and results. Bogotá, Colombia.">
+<meta name="theme-color" content="#07132F">
+<link rel="canonical" href="https://admin4ward.github.io/en">
+<link rel="alternate" hreflang="es" href="https://admin4ward.github.io/">
+<link rel="alternate" hreflang="en" href="https://admin4ward.github.io/en">
+<link rel="alternate" hreflang="x-default" href="https://admin4ward.github.io/">
+<meta property="og:title" content="FOURWARD · Consulting, training and applied AI">
+<meta property="og:description" content="Business consulting, applied technology and corporate training.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&display=swap">
+<style>
+/* Composición: barra y portada en navy con líneas de avance; cuerpo claro de una
+   columna de 1200px; bloques navy para lo que la marca quiere subrayar. Un solo
+   aspecto visual a propósito: es el sitio institucional y sigue el manual de marca. */
+:root {
+  color-scheme: light;
+  /* Paleta oficial (Manual de identidad 1.1) */
+  --navy: #07132F;
+  --azul: #0753C5;
+  --cian: #00C9EE;
+  --plata: #B8C2CC;
+  --blanco: #FFFFFF;
+  --grafito: #122744;
+  /* Neutros derivados, con sesgo hacia el azul de la marca */
+  --fondo: #FFFFFF;
+  --fondo-suave: #F3F6FB;
+  --navy-2: #0C1D45;
+  --navy-3: #12295C;
+  --texto: #122744;
+  --texto-suave: #4B5C78;
+  --texto-claro: #C9D4E6;
+  --linea: #DCE3EE;
+  --linea-navy: rgba(184, 194, 204, .18);
+  --azul-oscuro: #06439F;
+  --cian-texto: #6FDDF7;
+  /* Tipografía: Inter es la única familia de la marca */
+  --fuente: "Inter", Arial, system-ui, sans-serif;
+  --t-xs: .8125rem;
+  --t-sm: .9375rem;
+  --t-base: 1.0625rem;
+  --t-lg: 1.25rem;
+  --t-xl: clamp(1.375rem, 1.2rem + .7vw, 1.75rem);
+  --t-2xl: clamp(1.875rem, 1.5rem + 1.6vw, 2.75rem);
+  --t-3xl: clamp(2.375rem, 1.6rem + 3.4vw, 4.25rem);
+  /* Espaciado y forma */
+  --e-1: 4px; --e-2: 8px; --e-3: 12px; --e-4: 16px; --e-5: 24px;
+  --e-6: 32px; --e-7: 48px; --e-8: 72px; --e-9: 112px;
+  --r-s: 8px; --r-m: 14px; --r-l: 22px; --r-full: 999px;
+  --sombra: 0 1px 2px rgba(7, 19, 47, .06), 0 10px 28px rgba(7, 19, 47, .07);
+  --sombra-l: 0 4px 10px rgba(7, 19, 47, .08), 0 28px 56px rgba(7, 19, 47, .14);
+  --max: 1200px;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  --alto-barra: 68px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+img, svg { max-width: 100%; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--alto-barra) + 16px); }
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: var(--fuente);
+  font-size: var(--t-base);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px); z-index: 60; background: var(--navy);
+}
+h1, h2, h3, h4, p, ul, ol { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+h1, h2, h3 { text-wrap: balance; letter-spacing: -.022em; line-height: 1.1; font-weight: 700; }
+a { color: inherit; }
+button, input, select, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--cian); outline-offset: 3px; border-radius: 4px; }
+
+.contenedor {
+  width: 100%; max-width: var(--max); margin-inline: auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+.salto {
+  position: absolute; left: 16px; top: -100px; z-index: 100;
+  background: var(--blanco); color: var(--navy); padding: 10px 16px;
+  border-radius: var(--r-s); font-weight: 600;
+}
+.salto:focus { top: calc(env(safe-area-inset-top, 0px) + 12px); }
+
+/* ---------- Piezas compartidas ---------- */
+.etiqueta {
+  font-size: var(--t-xs); font-weight: 600; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--azul);
+}
+.sobre-navy .etiqueta { color: var(--cian-texto); }
+.titulo-seccion { font-size: var(--t-2xl); }
+.bajada { font-size: var(--t-lg); color: var(--texto-suave); max-width: 62ch; line-height: 1.55; }
+.sobre-navy { background: var(--navy); color: var(--blanco); }
+.sobre-navy .bajada { color: var(--texto-claro); }
+.cabecera-seccion { display: grid; gap: var(--e-4); margin-bottom: var(--e-7); }
+.seccion { padding-block: var(--e-9); }
+.seccion-suave { background: var(--fondo-suave); }
+
+.boton {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 50px; padding: 13px 24px; border-radius: var(--r-full);
+  border: 1.5px solid transparent; font-weight: 600; font-size: var(--t-sm);
+  text-decoration: none; cursor: pointer; white-space: nowrap;
+  transition: background .2s var(--ease), border-color .2s var(--ease), color .2s var(--ease), transform .2s var(--ease);
+}
+.boton:active { transform: translateY(1px); }
+.boton svg { width: 18px; height: 18px; flex: none; transition: transform .2s var(--ease); }
+.boton:hover svg { transform: translateX(3px); }
+.boton-cian { background: var(--cian); color: var(--navy); }
+.boton-cian:hover { background: #4FDBF5; }
+.boton-azul { background: var(--azul); color: var(--blanco); }
+.boton-azul:hover { background: var(--azul-oscuro); }
+.boton-linea { border-color: rgba(255, 255, 255, .42); color: var(--blanco); background: transparent; }
+.boton-linea:hover { border-color: var(--blanco); background: rgba(255, 255, 255, .08); }
+.boton-claro { border-color: var(--linea); color: var(--navy); background: var(--blanco); }
+.boton-claro:hover { border-color: var(--azul); color: var(--azul); }
+
+.icono {
+  width: 44px; height: 44px; flex: none; display: grid; place-items: center;
+  border-radius: 12px; background: rgba(7, 83, 197, .09); color: var(--azul);
+}
+.icono svg { width: 22px; height: 22px; }
+.sobre-navy .icono { background: rgba(0, 201, 238, .12); color: var(--cian); }
+
+/* ---------- Barra superior ---------- */
+.barra {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50;
+  background: rgba(7, 19, 47, .94); color: var(--blanco);
+  backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid var(--linea-navy);
+}
+.barra-interior { display: flex; align-items: center; gap: var(--e-5); min-height: var(--alto-barra); }
+.marca { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; margin-right: auto; }
+.marca svg { width: 44px; height: 34px; flex: none; }
+.marca-nombre { font-weight: 750; letter-spacing: .06em; font-size: 1.0625rem; }
+.navegacion { display: flex; align-items: center; gap: var(--e-6); }
+.navegacion a {
+  text-decoration: none; font-size: var(--t-sm); font-weight: 500; color: var(--texto-claro);
+  padding-block: 8px; border-bottom: 2px solid transparent; transition: color .2s, border-color .2s;
+}
+.navegacion a:hover { color: var(--blanco); border-color: var(--cian); }
+.navegacion a.boton, .navegacion a.boton:hover { color: var(--navy); border-color: transparent; }
+.navegacion a.idioma, .pie-enlaces a.idioma {
+  border: 1.5px solid var(--linea-navy); border-radius: var(--r-full); padding: 5px 12px;
+  font-size: var(--t-xs); font-weight: 700; letter-spacing: .08em; color: var(--blanco);
+}
+.navegacion a.idioma:hover, .pie-enlaces a.idioma:hover { border-color: var(--cian); color: var(--cian); text-decoration: none; }
+.aviso-idioma {
+  position: fixed; left: 16px; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 70;
+  max-width: 560px; margin-inline: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px;
+  background: var(--blanco); color: var(--texto); border: 1px solid var(--linea); border-radius: var(--r-m);
+  box-shadow: var(--sombra-l); padding: 14px 16px 14px 20px; font-size: var(--t-sm);
+}
+.aviso-idioma p { flex: 1 1 200px; font-weight: 500; }
+.aviso-idioma .boton { min-height: 40px; padding: 8px 18px; }
+.aviso-idioma button.cerrar {
+  width: 40px; height: 40px; border: 0; background: transparent; color: var(--texto-suave);
+  font-size: 1.4rem; line-height: 1; cursor: pointer; border-radius: 50%;
+}
+.aviso-idioma button.cerrar:hover { background: var(--fondo-suave); color: var(--navy); }
+.barra .boton { min-height: 42px; padding: 9px 20px; }
+.menu-boton {
+  display: none; width: 44px; height: 44px; border: 1.5px solid var(--linea-navy);
+  border-radius: 12px; background: transparent; color: var(--blanco); cursor: pointer; place-items: center;
+}
+.menu-boton svg { width: 22px; height: 22px; }
+
+/* ---------- Portada ---------- */
+.portada { position: relative; overflow: hidden; }
+.portada canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.portada-interior {
+  position: relative; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+  align-items: center; gap: var(--e-7);
+  padding-block: clamp(56px, 8vw, 104px) clamp(120px, 13vw, 168px);
+}
+.portada-texto { display: grid; gap: var(--e-5); justify-items: start; min-width: 0; }
+.portada h1 { font-size: var(--t-3xl); letter-spacing: -.03em; line-height: 1.04; }
+.portada h1 em { font-style: normal; color: var(--cian); }
+.portada .bajada { font-size: var(--t-xl); line-height: 1.45; max-width: 34ch; }
+.portada-acciones { display: flex; flex-wrap: wrap; gap: var(--e-3); margin-top: var(--e-3); }
+.portada-iso { justify-self: center; width: min(100%, 420px); filter: drop-shadow(0 30px 60px rgba(0, 20, 80, .55)); }
+.portada-iso svg { width: 100%; height: auto; display: block; }
+
+/* Banda de capacidades: monta sobre el borde inferior de la portada */
+.capacidades { position: relative; z-index: 2; margin-top: clamp(-104px, -8vw, -72px); }
+.capacidades-rejilla {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  background: var(--blanco); border: 1px solid var(--linea);
+  border-radius: var(--r-l); box-shadow: var(--sombra-l); overflow: hidden;
+}
+.capacidad { display: grid; gap: var(--e-3); padding: var(--e-6); align-content: start; min-width: 0; }
+.capacidad + .capacidad { border-left: 1px solid var(--linea); }
+.capacidad h3 { font-size: var(--t-lg); letter-spacing: -.01em; }
+.capacidad p { color: var(--texto-suave); font-size: var(--t-sm); }
+
+/* ---------- Contexto ---------- */
+.contexto-rejilla { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--e-8); align-items: start; }
+.contexto-intro { display: grid; gap: var(--e-5); position: sticky; top: calc(var(--alto-barra) + 32px); }
+.conviccion {
+  background: var(--navy); color: var(--blanco); border-radius: var(--r-l);
+  padding: var(--e-6); display: grid; gap: var(--e-3);
+}
+.conviccion p { font-size: var(--t-xl); font-weight: 600; line-height: 1.3; letter-spacing: -.015em; }
+.conviccion .etiqueta { color: var(--cian-texto); }
+.retos { display: grid; gap: var(--e-3); }
+.reto {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--e-4);
+  padding: var(--e-5); border: 1px solid var(--linea); border-radius: var(--r-m); background: var(--blanco);
+}
+.reto h3 { font-size: var(--t-base); letter-spacing: 0; line-height: 1.3; margin-bottom: 4px; }
+.reto p { color: var(--texto-suave); font-size: var(--t-sm); }
+
+/* ---------- Explorador por necesidad ---------- */
+.fichas { display: flex; flex-wrap: wrap; gap: var(--e-2); margin-bottom: var(--e-5); }
+.ficha {
+  border: 1.5px solid var(--linea); background: var(--blanco); color: var(--texto);
+  border-radius: var(--r-full); padding: 11px 20px; font-weight: 600; font-size: var(--t-sm);
+  cursor: pointer; transition: background .2s var(--ease), border-color .2s var(--ease), color .2s var(--ease);
+}
+.ficha:hover { border-color: var(--azul); color: var(--azul); }
+.ficha[aria-selected="true"] { background: var(--navy); border-color: var(--navy); color: var(--blanco); }
+.panel {
+  display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: var(--e-7);
+  background: var(--blanco); border: 1px solid var(--linea); border-radius: var(--r-l);
+  padding: clamp(24px, 4vw, 48px); box-shadow: var(--sombra);
+}
+.panel-resumen { display: grid; gap: var(--e-4); align-content: start; justify-items: start; }
+.panel-resumen h3 { font-size: var(--t-xl); }
+.panel-resumen p { color: var(--texto-suave); }
+.panel-lista { display: grid; gap: 0; align-content: start; }
+.panel-lista li {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--e-3);
+  padding-block: var(--e-4); border-top: 1px solid var(--linea);
+}
+.panel-lista li:first-child { border-top: 0; padding-top: 0; }
+.panel-lista svg { width: 20px; height: 20px; color: var(--azul); margin-top: 3px; }
+.panel-lista strong { display: block; font-weight: 600; line-height: 1.35; }
+.panel-lista span { color: var(--texto-suave); font-size: var(--t-sm); }
+
+/* ---------- Soluciones ---------- */
+.lineas { display: grid; gap: var(--e-5); }
+.linea-servicio {
+  display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: var(--e-7);
+  padding: clamp(24px, 4vw, 48px); border-radius: var(--r-l);
+  background: var(--blanco); border: 1px solid var(--linea);
+}
+.linea-servicio.sobre-navy { background: var(--navy); border-color: var(--navy); }
+.linea-cabeza { display: grid; gap: var(--e-4); align-content: start; }
+.linea-cabeza h3 { font-size: var(--t-xl); }
+.linea-cabeza .lema { font-weight: 600; color: var(--azul); }
+.sobre-navy .linea-cabeza .lema { color: var(--cian-texto); }
+.linea-cabeza p { color: var(--texto-suave); }
+.sobre-navy .linea-cabeza p { color: var(--texto-claro); }
+.linea-cabeza .cierre {
+  margin-top: var(--e-3); padding-top: var(--e-4); border-top: 1px solid var(--linea);
+  font-size: var(--t-sm); font-weight: 500; color: var(--texto);
+}
+.sobre-navy .linea-cabeza .cierre { border-color: var(--linea-navy); color: var(--blanco); }
+.linea-items { columns: 2; column-gap: var(--e-6); }
+.linea-items li { display: grid; gap: 4px; padding-left: var(--e-4); border-left: 2px solid var(--azul); break-inside: avoid; margin-bottom: var(--e-5); }
+.linea-items li:last-child { margin-bottom: 0; }
+.sobre-navy .linea-items li { border-color: var(--cian); }
+.linea-items strong { font-weight: 600; line-height: 1.35; }
+.linea-items span { color: var(--texto-suave); font-size: var(--t-sm); }
+.sobre-navy .linea-items span { color: var(--texto-claro); }
+
+/* ---------- Formación ---------- */
+.formacion-rejilla { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: var(--e-7); align-items: start; }
+.experiencia { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--e-4); }
+.momento {
+  display: grid; gap: var(--e-3); align-content: start; padding: var(--e-5);
+  background: var(--blanco); border: 1px solid var(--linea); border-radius: var(--r-m);
+}
+.momento h3 { font-size: var(--t-lg); letter-spacing: -.01em; }
+.momento p { color: var(--texto-suave); font-size: var(--t-sm); }
+.formacion-datos { display: grid; gap: var(--e-5); }
+.dato { display: grid; gap: var(--e-3); padding-bottom: var(--e-5); border-bottom: 1px solid var(--linea); }
+.dato:last-child { border-bottom: 0; padding-bottom: 0; }
+.dato h3 { font-size: var(--t-base); letter-spacing: 0; }
+.chips { display: flex; flex-wrap: wrap; gap: var(--e-2); }
+.chip {
+  padding: 7px 14px; border-radius: var(--r-full); background: var(--blanco);
+  border: 1px solid var(--linea); font-size: var(--t-sm); font-weight: 500;
+}
+.nota { font-size: var(--t-sm); color: var(--texto-suave); }
+
+/* ---------- Método ---------- */
+.pasos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--e-5); counter-reset: paso; }
+.paso { display: grid; gap: var(--e-3); align-content: start; position: relative; padding-top: var(--e-6); border-top: 1px solid var(--linea-navy); }
+.paso::before {
+  counter-increment: paso; content: counter(paso, decimal-leading-zero);
+  position: absolute; top: -1px; left: 0; transform: translateY(-50%);
+  background: var(--cian); color: var(--navy); font-weight: 700; font-size: var(--t-xs);
+  font-variant-numeric: tabular-nums; padding: 5px 11px; border-radius: var(--r-full);
+}
+.paso h3 { font-size: var(--t-xl); }
+.paso p { color: var(--texto-claro); font-size: var(--t-sm); }
+.metodo-cierre { margin-top: var(--e-7); font-weight: 600; font-size: var(--t-lg); color: var(--cian-texto); }
+
+/* ---------- Nosotros ---------- */
+.nosotros-rejilla { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--e-8); align-items: start; }
+.nosotros-texto { display: grid; gap: var(--e-5); }
+.nosotros-texto p { color: var(--texto-suave); max-width: 58ch; }
+.proposito {
+  border-left: 3px solid var(--azul); padding-left: var(--e-5);
+  font-size: var(--t-xl); font-weight: 600; line-height: 1.3; letter-spacing: -.015em; color: var(--navy);
+}
+.pensar { display: grid; gap: var(--e-3); }
+.pensar li {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--e-4); align-items: start;
+  padding: var(--e-5); background: var(--fondo-suave); border-radius: var(--r-m);
+}
+.pensar h3 { font-size: var(--t-lg); letter-spacing: -.01em; margin-bottom: 4px; }
+.pensar p { color: var(--texto-suave); font-size: var(--t-sm); }
+
+/* ---------- Contacto ---------- */
+.contacto { position: relative; overflow: hidden; }
+.contacto-rejilla { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--e-8); align-items: start; }
+.contacto-texto { display: grid; gap: var(--e-5); }
+.contacto-texto h2 { font-size: var(--t-2xl); }
+.contacto-datos { display: grid; gap: var(--e-4); margin-top: var(--e-3); }
+.contacto-datos li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--e-4); align-items: center; }
+.contacto-datos small { display: block; font-size: var(--t-xs); letter-spacing: .12em; text-transform: uppercase; color: var(--cian-texto); font-weight: 600; }
+.contacto-datos .valor { font-weight: 600; overflow-wrap: anywhere; user-select: all; }
+.copiar {
+  margin-left: 10px; border: 1px solid var(--linea-navy); background: transparent; color: var(--texto-claro);
+  border-radius: var(--r-full); padding: 3px 12px; font-size: var(--t-xs); font-weight: 600; cursor: pointer;
+}
+.copiar:hover { color: var(--blanco); border-color: var(--blanco); }
+.formulario {
+  background: var(--blanco); color: var(--texto); border-radius: var(--r-l);
+  padding: clamp(22px, 3.4vw, 40px); display: grid; gap: var(--e-4); box-shadow: var(--sombra-l);
+}
+.formulario h3 { font-size: var(--t-xl); }
+.campo { display: grid; gap: 6px; min-width: 0; }
+.campo-doble { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--e-4); }
+.campo label { font-size: var(--t-sm); font-weight: 600; }
+.campo input, .campo select, .campo textarea {
+  width: 100%; min-height: 48px; padding: 11px 14px; border: 1.5px solid var(--linea);
+  border-radius: var(--r-s); background: var(--blanco); color: var(--texto);
+  transition: border-color .2s, box-shadow .2s;
+}
+.campo textarea { min-height: 112px; resize: vertical; }
+.campo input:focus, .campo select:focus, .campo textarea:focus {
+  outline: none; border-color: var(--azul); box-shadow: 0 0 0 4px rgba(7, 83, 197, .14);
+}
+.campo .error { color: #B3261E; font-size: var(--t-xs); font-weight: 500; }
+.campo [aria-invalid="true"] { border-color: #B3261E; }
+.formulario .boton { justify-self: start; }
+.listo { display: grid; gap: var(--e-4); }
+.listo pre {
+  margin: 0; padding: var(--e-4); background: var(--fondo-suave); border-radius: var(--r-s);
+  font-family: var(--fuente); font-size: var(--t-sm); white-space: pre-wrap; overflow-wrap: anywhere;
+  max-height: 220px; overflow: auto; border: 1px solid var(--linea);
+}
+.listo-acciones { display: flex; flex-wrap: wrap; gap: var(--e-3); }
+
+/* ---------- Pie ---------- */
+.pie { background: #050D22; color: var(--texto-claro); padding-block: var(--e-7) var(--e-6); }
+.pie-rejilla { display: flex; flex-wrap: wrap; gap: var(--e-7); align-items: flex-end; justify-content: space-between; }
+.pie-logo svg { width: 190px; height: auto; display: block; }
+.pie-enlaces { display: flex; flex-wrap: wrap; gap: var(--e-5); font-size: var(--t-sm); }
+.pie-enlaces a { text-decoration: none; }
+.pie-enlaces a:hover { color: var(--blanco); text-decoration: underline; text-underline-offset: 4px; }
+.pie-legal {
+  margin-top: var(--e-6); padding-top: var(--e-5); border-top: 1px solid var(--linea-navy);
+  display: flex; flex-wrap: wrap; gap: var(--e-3) var(--e-6); justify-content: space-between; font-size: var(--t-xs);
+}
+
+/* ---------- Entregables del método ---------- */
+.paso .recibes {
+  margin-top: var(--e-2); padding-top: var(--e-3); border-top: 1px dashed var(--linea-navy);
+  color: var(--blanco); font-size: var(--t-sm);
+}
+.paso .recibes b { display: block; font-size: var(--t-xs); letter-spacing: .12em; text-transform: uppercase; color: var(--cian-texto); font-weight: 600; margin-bottom: 2px; }
+.compromisos {
+  margin-top: var(--e-7); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 1px solid var(--linea-navy); border-radius: var(--r-l); overflow: hidden;
+}
+.compromiso { padding: var(--e-5) var(--e-6); display: grid; gap: 6px; align-content: start; }
+.compromiso + .compromiso { border-left: 1px solid var(--linea-navy); }
+.compromiso strong { font-size: var(--t-lg); letter-spacing: -.01em; line-height: 1.25; }
+.compromiso span { color: var(--texto-claro); font-size: var(--t-sm); }
+.enlace-texto { color: var(--azul); font-weight: 600; text-underline-offset: 4px; }
+.enlace-texto:hover { color: var(--azul-oscuro); }
+.pista { margin-top: var(--e-5); color: var(--texto-suave); font-size: var(--t-sm); }
+
+/* ---------- Diagnóstico rápido ---------- */
+.diag-rejilla { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: var(--e-8); align-items: start; }
+.diag-intro { display: grid; gap: var(--e-5); position: sticky; top: calc(var(--alto-barra) + 32px); }
+.diag-tarjeta {
+  background: var(--blanco); border: 1px solid var(--linea); border-radius: var(--r-l);
+  box-shadow: var(--sombra); padding: clamp(20px, 3.4vw, 40px); display: grid; gap: var(--e-5);
+}
+.pregunta { border: 0; padding: 0; margin: 0; min-width: 0; }
+.pregunta + .pregunta { padding-top: var(--e-5); border-top: 1px solid var(--linea); }
+.pregunta legend { float: left; width: 100%; padding: 0; margin-bottom: var(--e-3); font-weight: 600; line-height: 1.4; }
+.pregunta .opciones { clear: both; }
+.pregunta legend small { display: block; font-size: var(--t-xs); letter-spacing: .14em; text-transform: uppercase; color: var(--azul); font-weight: 600; margin-bottom: 4px; }
+.opciones { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--e-2); }
+.opciones label { position: relative; display: block; min-width: 0; }
+.opciones input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.opciones span {
+  display: grid; place-items: center; text-align: center; min-height: 46px; padding: 8px 10px;
+  border: 1.5px solid var(--linea); border-radius: var(--r-s); font-size: var(--t-sm); font-weight: 500;
+  transition: background .2s var(--ease), border-color .2s var(--ease), color .2s var(--ease);
+}
+.opciones label:hover span { border-color: var(--azul); }
+.opciones input:checked + span { background: var(--navy); border-color: var(--navy); color: var(--blanco); }
+.opciones input:focus-visible + span { outline: 3px solid var(--cian); outline-offset: 2px; }
+.diag-pie { display: flex; flex-wrap: wrap; align-items: center; gap: var(--e-4); }
+.diag-pie .nota { flex: 1 1 200px; }
+.resultado { background: var(--navy); color: var(--blanco); border-radius: var(--r-m); padding: var(--e-6); display: grid; gap: var(--e-4); }
+.resultado h3 { font-size: var(--t-xl); }
+.resultado p { color: var(--texto-claro); font-size: var(--t-sm); }
+.resultado .etiqueta { color: var(--cian-texto); }
+.barras { display: grid; gap: var(--e-3); }
+.barra-dim { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: var(--e-3); align-items: center; font-size: var(--t-sm); }
+.barra-dim i { display: block; height: 8px; border-radius: var(--r-full); background: rgba(184, 194, 204, .2); overflow: hidden; }
+.barra-dim i b { display: block; height: 100%; border-radius: inherit; background: var(--cian); transition: width .5s var(--ease); }
+.resultado-acciones { display: flex; flex-wrap: wrap; gap: var(--e-3); }
+
+/* ---------- Perspectivas ---------- */
+.perspectivas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--e-5); align-items: start; }
+.perspectiva {
+  background: var(--blanco); border: 1px solid var(--linea); border-radius: var(--r-l);
+  padding: var(--e-6); display: grid; gap: var(--e-4); align-content: start; border-top: 4px solid var(--azul);
+}
+.perspectiva h3 { font-size: var(--t-xl); line-height: 1.2; }
+.perspectiva > p { color: var(--texto-suave); font-size: var(--t-sm); }
+.perspectiva > p.etiqueta { color: var(--azul); font-size: var(--t-xs); }
+.perspectiva details { border-top: 1px solid var(--linea); padding-top: var(--e-4); }
+.perspectiva summary { cursor: pointer; font-weight: 600; font-size: var(--t-sm); color: var(--azul); list-style: none; display: inline-flex; align-items: center; gap: 8px; }
+.perspectiva summary::-webkit-details-marker { display: none; }
+.perspectiva summary::after { content: "+"; font-size: 1.2em; line-height: 1; }
+.perspectiva details[open] summary::after { content: "–"; }
+.perspectiva details p { margin-top: var(--e-3); font-size: var(--t-sm); color: var(--texto); }
+.perspectiva details p.clave { font-weight: 600; color: var(--navy); border-left: 3px solid var(--cian); padding-left: var(--e-3); }
+
+/* ---------- Red de expertos ---------- */
+.banda-red { padding-bottom: var(--e-9); }
+.red {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--e-5);
+  background: var(--fondo-suave); border: 1px solid var(--linea); border-radius: var(--r-l); padding: clamp(24px, 4vw, 40px);
+}
+.red div { display: grid; gap: var(--e-2); flex: 1 1 420px; min-width: 0; }
+.red h3 { font-size: var(--t-xl); }
+.red p { color: var(--texto-suave); font-size: var(--t-sm); max-width: 62ch; }
+
+@media (min-width: 961px) and (max-width: 1180px) {
+  .navegacion { gap: 18px; }
+  .navegacion a { font-size: .875rem; }
+  .barra .boton { padding: 9px 16px; }
+}
+
+/* ---------- Adaptación ---------- */
+@media (max-width: 960px) {
+  :root { --e-9: 80px; --e-8: 48px; }
+  .navegacion {
+    position: absolute; left: 0; right: 0; top: 100%; flex-direction: column; align-items: stretch; gap: 0;
+    background: var(--navy); border-bottom: 1px solid var(--linea-navy);
+    padding: var(--e-2) max(20px, env(safe-area-inset-right, 0px)) var(--e-5) max(20px, env(safe-area-inset-left, 0px));
+  }
+  .navegacion[hidden] { display: none; }
+  .navegacion a { padding-block: 14px; border-bottom: 1px solid var(--linea-navy); font-size: var(--t-base); }
+  .navegacion .boton { margin-top: var(--e-4); border-bottom: 0; }
+  .menu-boton { display: grid; }
+  .portada-interior, .contexto-rejilla, .panel, .linea-servicio, .formacion-rejilla,
+  .nosotros-rejilla, .contacto-rejilla, .diag-rejilla, .perspectivas, .compromisos { grid-template-columns: minmax(0, 1fr); }
+  .diag-intro { position: static; }
+  .compromiso + .compromiso { border-left: 0; border-top: 1px solid var(--linea-navy); }
+  .portada-iso { display: none; }
+  .portada .bajada { max-width: 40ch; }
+  .contexto-intro { position: static; }
+  .pasos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--e-7) var(--e-5); }
+  .capacidades-rejilla { grid-template-columns: minmax(0, 1fr); }
+  .capacidad + .capacidad { border-left: 0; border-top: 1px solid var(--linea); }
+  .capacidad { grid-template-columns: auto minmax(0, 1fr); column-gap: var(--e-4); padding: var(--e-5); }
+  .capacidad .icono { grid-row: span 2; }
+}
+@media (max-width: 620px) {
+  .experiencia, .campo-doble, .pasos { grid-template-columns: minmax(0, 1fr); }
+  .linea-items { columns: 1; }
+  .opciones { grid-template-columns: minmax(0, 1fr); }
+  .barra-dim { grid-template-columns: 84px minmax(0, 1fr); }
+  .resultado-acciones .boton, .red .boton { width: 100%; }
+  .portada-acciones .boton, .formulario .boton { width: 100%; }
+  .fichas { flex-wrap: nowrap; overflow-x: auto; margin-inline: -20px; padding-inline: 20px; scrollbar-width: none; }
+  .fichas::-webkit-scrollbar { display: none; }
+  .ficha { flex: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- Isotipo oficial (vector maestro). Se define una vez y se reutiliza. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="fw-top" x1="0%" y1="100%" x2="85%" y2="10%"><stop stop-color="#071e5a"/><stop offset=".52" stop-color="#0753c5"/><stop offset="1" stop-color="#00c9ee"/></linearGradient>
+    <linearGradient id="fw-base" x1="0%" y1="0%" x2="85%" y2="100%"><stop stop-color="#061946"/><stop offset=".58" stop-color="#0750bb"/><stop offset="1" stop-color="#04bafa"/></linearGradient>
+    <linearGradient id="fw-ribbon" x1="0%" y1="90%" x2="100%" y2="15%"><stop stop-color="#0737a3"/><stop offset=".38" stop-color="#075ee5"/><stop offset=".56" stop-color="#789ecb"/><stop offset=".76" stop-color="#c4d0df"/><stop offset="1" stop-color="#f4f7fb"/></linearGradient>
+    <linearGradient id="fw-silver" x1="0%" y1="100%" x2="80%" y2="0%"><stop stop-color="#6b84a8"/><stop offset=".38" stop-color="#b9c4d4"/><stop offset=".8" stop-color="#e7ebf2"/><stop offset="1" stop-color="#ffffff"/></linearGradient>
+    <linearGradient id="fw-cyan" x1="0%" y1="0%" x2="100%" y2="0%"><stop stop-color="#00d9f5"/><stop offset="1" stop-color="#4ecfff"/></linearGradient>
+    <linearGradient id="fw-tipo" x1="0%" y1="0%" x2="0%" y2="100%"><stop stop-color="#FFFFFF"/><stop offset="1" stop-color="#B4C1D6"/></linearGradient>
+  </defs>
+  <symbol id="fw-iso" viewBox="0 0 740 568">
+    <path d="M72 532 L170 147 Q180 45 240 45 L644 45 L593 113 L343 113 Q308 113 299 146 L264 269 Q224 314 187 385 L145 504 Q136 531 107 532 Z" fill="url(#fw-top)"/>
+    <path d="M72 532 L169 147 Q180 45 240 45 L260 45 Q207 57 199 133 L141 366 L107 505 Q103 525 72 532Z" fill="#042b83" opacity=".62"/>
+    <path d="M72 532 L126 329 Q142 281 194 251 L251 223 Q212 278 192 342 L159 483 Q147 532 107 532 Z" fill="url(#fw-base)"/>
+    <path d="M160 532 Q194 526 210 489 L251 358 Q263 317 309 305 L549 305 L520 368 L326 368 Q282 368 270 405 L236 496 Q222 532 187 532Z" fill="url(#fw-silver)"/>
+    <path d="M111 445 Q154 334 246 284 Q331 222 441 223 L550 223 L557 179 L650 253 L547 337 L544 295 L424 295 Q320 295 255 339 Q187 386 137 491 L113 513 Z" fill="url(#fw-ribbon)"/>
+    <path d="M112 444 Q153 332 246 284 Q330 223 441 223 L550 223 Q352 219 250 302 Q168 367 112 444Z" fill="url(#fw-cyan)"/>
+    <path d="M113 513 Q182 386 255 339 Q320 295 424 295 L544 295 Q362 290 260 356 Q191 400 137 491Z" fill="#043caa" opacity=".65"/>
+    <g stroke="#00d9f8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <path d="M205 202 L205 150 L290 81 L444 81"/><path d="M235 229 L235 167 L296 121 L394 121"/><path d="M181 286 L181 236"/>
+    </g>
+    <g fill="#00d9f8"><circle cx="205" cy="202" r="12"/><circle cx="205" cy="150" r="12"/><circle cx="290" cy="81" r="12"/><circle cx="444" cy="81" r="13"/><circle cx="235" cy="229" r="11"/><circle cx="394" cy="121" r="11"/><circle cx="181" cy="236" r="10"/></g>
+  </symbol>
+  <symbol id="i-flecha" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-estrategia" viewBox="0 0 24 24"><path d="M4 18L10 12l4 4 6-8M15 8h5v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-tecnologia" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4"/></g></symbol>
+  <symbol id="i-conocimiento" viewBox="0 0 24 24"><path d="M12 6.5C10 5 7.5 4.5 4 4.5v13c3.5 0 6 .5 8 2 2-1.5 4.500-2 8-2v-13c-3.500 0-6 .5-8 2zM12 6.500v13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-mercado" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.500v17M3.500 12h17M6 6.500c3.500 2.500 8.500 2.500 12 0M6 17.500c3.500-2.500 8.500-2.500 12 0"/></g></symbol>
+  <symbol id="i-proceso" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h10a4 4 0 010 8H8"/><path d="M11 12l-3 3 3 3M4 4v6"/></g></symbol>
+  <symbol id="i-equipo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.500" r="3"/><path d="M3.500 19c0-3 2.500-5 5.500-5s5.500 2 5.500 5"/><circle cx="17" cy="9.500" r="2.300"/><path d="M16.500 14.200c2.400.2 4 1.800 4 4.300"/></g></symbol>
+  <symbol id="i-correo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.500" y="5.500" width="17" height="13" rx="2"/><path d="M4 7l8 6 8-6"/></g></symbol>
+  <symbol id="i-lugar" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.200 7-11.500a7 7 0 10-14 0C5 14.800 12 21 12 21z"/><circle cx="12" cy="9.500" r="2.500"/></g></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M20 11.500a8 8 0 01-11.800 7L4 20l1.500-4.200A8 8 0 1120 11.500z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+</svg>
+
+<a class="salto" href="#contenido">Skip to content</a>
+
+<header class="barra">
+  <div class="contenedor barra-interior">
+    <a class="marca" href="#inicio" aria-label="FOURWARD, home">
+      <svg viewBox="0 0 740 568" aria-hidden="true"><use href="#fw-iso"/></svg>
+      <span class="marca-nombre">FOURWARD</span>
+    </a>
+    <button class="menu-boton" id="menu-boton" type="button" aria-expanded="false" aria-controls="navegacion" aria-label="Open menu">
+      <svg aria-hidden="true"><use href="#i-menu"/></svg>
+    </button>
+    <nav class="navegacion" id="navegacion" aria-label="Main">
+      <a href="#soluciones">Solutions</a>
+      <a href="#formacion">Training</a>
+      <a href="#metodo">How we work</a>
+      <a href="#perspectivas">Insights</a>
+      <a href="#nosotros">About us</a>
+      <a href="app" target="_blank" rel="noopener">Team access</a>
+      <a class="idioma" href="./" hreflang="es" lang="es" data-idioma="es" aria-label="Versión en español" title="Versión en español">ES</a>
+      <a class="boton boton-cian" href="#contacto">Let’s talk</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenido">
+
+  <!-- Portada -->
+  <section class="portada sobre-navy" id="inicio">
+    <canvas id="lineas" aria-hidden="true"></canvas>
+    <div class="contenedor portada-interior">
+      <div class="portada-texto">
+        <p class="etiqueta">Consulting · Training · Applied AI</p>
+        <h1>Knowledge that drives <em>growth.</em></h1>
+        <p class="bajada">Strategy, technology and training that help your organization turn what it knows into decisions and results.</p>
+        <div class="portada-acciones">
+          <a class="boton boton-cian" href="#soluciones">Explore our solutions <svg aria-hidden="true"><use href="#i-flecha"/></svg></a>
+          <a class="boton boton-linea" href="#contacto">Tell us about your challenge</a>
+        </div>
+      </div>
+      <div class="portada-iso" aria-hidden="true">
+        <svg viewBox="0 0 740 568"><use href="#fw-iso"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Capacidades -->
+  <section class="capacidades" aria-label="Our three capabilities">
+    <div class="contenedor">
+      <div class="capacidades-rejilla">
+        <article class="capacidad">
+          <span class="icono"><svg aria-hidden="true"><use href="#i-estrategia"/></svg></span>
+          <h3>Strategy</h3>
+          <p>Clear direction and sound decisions: we turn a challenge into an action plan.</p>
+        </article>
+        <article class="capacidad">
+          <span class="icono"><svg aria-hidden="true"><use href="#i-tecnologia"/></svg></span>
+          <h3>Technology</h3>
+          <p>Artificial intelligence, automation and data, chosen for what they do for the business.</p>
+        </article>
+        <article class="capacidad">
+          <span class="icono"><svg aria-hidden="true"><use href="#i-conocimiento"/></svg></span>
+          <h3>Knowledge</h3>
+          <p>Applied training that turns your team’s capabilities into action.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contexto -->
+  <section class="seccion" id="contexto">
+    <div class="contenedor contexto-rejilla">
+      <div class="contexto-intro">
+        <p class="etiqueta">The context</p>
+        <h2 class="titulo-seccion">Business is changing. So is the way forward.</h2>
+        <p class="bajada">Organizations need to respond intelligently to increasingly complex challenges.</p>
+        <div class="conviccion">
+          <span class="etiqueta">What we believe</span>
+          <p>Having information is no longer enough. It has to become decisions and action.</p>
+        </div>
+      </div>
+      <ul class="retos">
+        <li class="reto">
+          <span class="icono"><svg aria-hidden="true"><use href="#i-mercado"/></svg></span>
+          <div><h3>Competitiveness</h3><p>Fast-moving markets and decisions that call for more clarity.</p></div>
+        </li>
+        <li class="reto">
+          <span class="icono"><svg aria-hidden="true"><use href="#i-proceso"/></svg></span>
+          <div><h3>Productivity</h3><p>Processes that need to evolve and make better use of resources.</p></div>
+        </li>
+        <li class="reto">
+          <span class="icono"><svg aria-hidden="true"><use href="#i-tecnologia"/></svg></span>
+          <div><h3>Digital transformation</h3><p>Technologies that open opportunities but demand adaptation.</p></div>
+        </li>
+        <li class="reto">
+          <span class="icono"><svg aria-hidden="true"><use href="#i-equipo"/></svg></span>
+          <div><h3>Team capabilities</h3><p>Knowledge and skills that need constant updating.</p></div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Explorador por necesidad -->
+  <section class="seccion seccion-suave" id="necesidad">
+    <div class="contenedor">
+      <div class="cabecera-seccion">
+        <p class="etiqueta">How we work with you</p>
+        <h2 class="titulo-seccion">What do you need to achieve?</h2>
+        <p class="bajada">We start from your challenge. Pick the one closest to yours and see how we approach it.</p>
+      </div>
+      <div class="fichas" role="tablist" aria-label="Needs" id="fichas"></div>
+      <div class="panel" role="tabpanel" id="panel-necesidad" tabindex="0"></div>
+      <p class="pista">Not sure where to start? <a class="enlace-texto" href="#diagnostico">Take the quick assessment</a>: five questions, two minutes.</p>
+    </div>
+  </section>
+
+  <!-- Solutions -->
+  <section class="seccion" id="soluciones">
+    <div class="contenedor">
+      <div class="cabecera-seccion">
+        <p class="etiqueta">Our solutions</p>
+        <h2 class="titulo-seccion">Services for real challenges.</h2>
+        <p class="bajada">Three service lines that can be combined or delivered on their own.</p>
+      </div>
+      <div class="lineas">
+        <article class="linea-servicio">
+          <div class="linea-cabeza">
+            <span class="icono"><svg aria-hidden="true"><use href="#i-estrategia"/></svg></span>
+            <h3>Business consulting</h3>
+            <p class="lema">Diagnosis, direction and execution</p>
+            <p>Support to understand challenges, structure strategies and launch improvement initiatives.</p>
+            <p class="cierre">For companies that need to turn a challenge into an action plan.</p>
+          </div>
+          <ul class="linea-items">
+            <li><strong>Business diagnosis and analysis</strong><span>Reading the context, identifying gaps and prioritizing opportunities.</span></li>
+            <li><strong>Strategic planning and structuring</strong><span>Defining objectives, key decisions and roadmaps.</span></li>
+            <li><strong>Productivity and process improvement</strong><span>Reviewing processes and identifying optimization opportunities.</span></li>
+            <li><strong>Project and initiative management</strong><span>Structuring, supporting and coordinating projects.</span></li>
+            <li><strong>Metrics and results tracking</strong><span>Designing and reading metrics to guide decisions and improvements.</span></li>
+          </ul>
+        </article>
+
+        <article class="linea-servicio sobre-navy">
+          <div class="linea-cabeza">
+            <span class="icono"><svg aria-hidden="true"><use href="#i-tecnologia"/></svg></span>
+            <h3>Applied technology and innovation</h3>
+            <p class="lema">Tools that make business sense</p>
+            <p>Technology tools selected for what they contribute to business processes and goals.</p>
+            <p class="cierre">Identify the potential. Prioritize its value. Support adoption.</p>
+          </div>
+          <ul class="linea-items">
+            <li><strong>AI applied to the business</strong><span>Identifying use cases and practical opportunities for business work.</span></li>
+            <li><strong>Automation opportunities</strong><span>Exploring tasks and workflows that can be simplified.</span></li>
+            <li><strong>Process digitalization and optimization</strong><span>Assessing tools to improve operations and collaboration.</span></li>
+            <li><strong>Strategic use of data and information</strong><span>Approaches to interpret information and support decisions.</span></li>
+            <li><strong>Adopting new tools</strong><span>Support to bring new ways of working into the organization.</span></li>
+          </ul>
+        </article>
+
+        <article class="linea-servicio">
+          <div class="linea-cabeza">
+            <span class="icono"><svg aria-hidden="true"><use href="#i-conocimiento"/></svg></span>
+            <h3>Corporate training</h3>
+            <p class="lema">Knowledge put into practice</p>
+            <p>Learning experiences that build the skills and capabilities each organization needs.</p>
+            <p class="cierre">Each program sets its own objectives, audience, topics and deliverables.</p>
+          </div>
+          <ul class="linea-items">
+            <li><strong>Business talks</strong><span>Sessions for inspiration, updates and applied reflection.</span></li>
+            <li><strong>Specialized masterclasses</strong><span>An executive deep dive into a priority topic.</span></li>
+            <li><strong>Hands-on courses and workshops</strong><span>Learning built around tools, exercises and business situations.</span></li>
+            <li><strong>Corporate training programs</strong><span>Learning paths structured across several sessions or modules.</span></li>
+            <li><strong>Tailored training</strong><span>Content and methodology adapted to the client’s context.</span></li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Training -->
+  <section class="seccion seccion-suave" id="formacion">
+    <div class="contenedor">
+      <div class="cabecera-seccion">
+        <p class="etiqueta">Training</p>
+        <h2 class="titulo-seccion">Learn, apply and transform.</h2>
+        <p class="bajada">A training proposal answers a specific business need, not just a syllabus. This is how each program unfolds.</p>
+      </div>
+      <div class="formacion-rejilla">
+        <div class="experiencia">
+          <article class="momento">
+            <p class="etiqueta">Explore</p>
+            <h3>Context and key concepts</h3>
+            <p>We start from the team’s reality to build judgment and better decisions.</p>
+          </article>
+          <article class="momento">
+            <p class="etiqueta">Practice</p>
+            <h3>Tools and exercises</h3>
+            <p>Cases, demonstrations and activities tied to everyday work.</p>
+          </article>
+          <article class="momento">
+            <p class="etiqueta">Transfer</p>
+            <h3>Application at work</h3>
+            <p>Practices that can be taken into operations as soon as the session ends.</p>
+          </article>
+        </div>
+        <div class="formacion-datos">
+          <div class="dato">
+            <h3>Topics we teach</h3>
+            <ul class="chips" id="temas"></ul>
+          </div>
+          <div class="dato">
+            <h3>Format</h3>
+            <ul class="chips"><li class="chip">In person</li><li class="chip">Online</li><li class="chip">Hybrid</li></ul>
+          </div>
+          <p class="nota">Topics and depth are adjusted to the scope of each program.</p>
+          <a class="boton boton-azul" href="#contacto" data-necesidad="Strengthen teams" style="justify-self:start">Request a training quote <svg aria-hidden="true"><use href="#i-flecha"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Método -->
+  <section class="seccion sobre-navy" id="metodo">
+    <div class="contenedor">
+      <div class="cabecera-seccion">
+        <p class="etiqueta">Our way of working</p>
+        <h2 class="titulo-seccion">From understanding to action.</h2>
+        <p class="bajada">We start from the client’s context to build relevant, applicable work.</p>
+      </div>
+      <ol class="pasos">
+        <li class="paso"><h3>We understand</h3><p>We listen to the client, recognize their needs and analyze the business context.</p><p class="recibes"><b>You get</b>A clear reading of your situation and the priority opportunities.</p></li>
+        <li class="paso"><h3>We design</h3><p>We structure a proposal aligned with objectives, capabilities and priorities.</p><p class="recibes"><b>You get</b>A proposal with objectives, scope, deliverables and investment.</p></li>
+        <li class="paso"><h3>We implement</h3><p>We carry out the agreed activities and promote practical application.</p><p class="recibes"><b>You get</b>The activities delivered side by side with your team.</p></li>
+        <li class="paso"><h3>We evaluate</h3><p>We review progress and improvement opportunities against the agreed scope.</p><p class="recibes"><b>You get</b>A summary of progress and recommendations for what comes next.</p></li>
+      </ol>
+      <div class="compromisos" aria-label="What you can expect from us">
+        <div class="compromiso"><strong>Clear scope from the start</strong><span>Before we begin, we agree on objectives, deliverables and investment in a proposal tailored to you.</span></div>
+        <div class="compromiso"><strong>Side-by-side work</strong><span>We build solutions with the people who will use them, never behind the back of operations.</span></div>
+        <div class="compromiso"><strong>Capability that stays</strong><span>Every engagement aims for your team to sustain and build on what was achieved.</span></div>
+      </div>
+      <p class="metodo-cierre">Relevant solutions, organized execution and applied learning.</p>
+    </div>
+  </section>
+
+  <!-- Quick assessment -->
+  <section class="seccion" id="diagnostico">
+    <div class="contenedor diag-rejilla">
+      <div class="diag-intro">
+        <p class="etiqueta">Quick assessment</p>
+        <h2 class="titulo-seccion">How ready is your organization to move forward?</h2>
+        <p class="bajada">Answer five statements about your company and get a first reading of where to start.</p>
+        <p class="nota">This is guidance, not a substitute for a business diagnosis. Your answers are not stored or sent: they are calculated in your browser.</p>
+      </div>
+      <form class="diag-tarjeta" id="diag" novalidate>
+        <div id="diag-preguntas" style="display:grid;gap:var(--e-5)"></div>
+        <div class="diag-pie">
+          <button class="boton boton-azul" type="submit">See my result <svg aria-hidden="true"><use href="#i-flecha"/></svg></button>
+          <p class="nota" id="diag-aviso" role="status"></p>
+        </div>
+        <div class="resultado" id="diag-resultado" role="status" hidden></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Insights -->
+  <section class="seccion seccion-suave" id="perspectivas">
+    <div class="contenedor">
+      <div class="cabecera-seccion">
+        <p class="etiqueta">Insights</p>
+        <h2 class="titulo-seccion">Ideas for better decisions.</h2>
+        <p class="bajada">Our team’s points of view on strategy, technology and knowledge in organizations.</p>
+      </div>
+      <div class="perspectivas">
+        <article class="perspectiva">
+          <p class="etiqueta">Artificial intelligence</p>
+          <h3>Before you choose an AI tool, choose the problem.</h3>
+          <p>Many AI initiatives start with the technology and end up looking for something to use it on. The opposite order works better.</p>
+          <details>
+            <summary>Read the perspective</summary>
+            <p>The useful question is which task in your operation takes time, repeats itself and has a result you can verify, rather than what artificial intelligence can do. That is usually where the first use case is.</p>
+            <p>A good first case is small, has an owner and can be measured within weeks. It teaches you how the team reacts, what data is missing and what controls are needed before widening the scope.</p>
+            <p class="clave">Start with a specific process, define how you will know it improved, and only then choose the tool.</p>
+          </details>
+        </article>
+        <article class="perspectiva">
+          <p class="etiqueta">Data and decisions</p>
+          <h3>A metric nobody looks at guides no decision.</h3>
+          <p>Dashboards multiply easily. The hard part is giving every figure an owner and a decision it informs.</p>
+          <details>
+            <summary>Read the perspective</summary>
+            <p>Measuring has a cost: someone captures the data, someone consolidates it and someone presents it. That effort is only justified when the metric changes what the organization does.</p>
+            <p>A simple test is to ask, for each metric, who reviews it, how often, and what they would do differently if it got worse tomorrow. If there is no answer, the metric is unnecessary or poorly defined.</p>
+            <p class="clave">A few metrics, each with an owner and a decision behind it, are worth more than a full dashboard.</p>
+          </details>
+        </article>
+        <article class="perspectiva">
+          <p class="etiqueta">Training</p>
+          <h3>A training session ends. A capability stays.</h3>
+          <p>Attending a course does not guarantee that work will change. The difference lies in what happens after the session.</p>
+          <details>
+            <summary>Read the perspective</summary>
+            <p>Training delivers results when it starts from a business need and not from a catalog of topics. That defines who to train, in what, and with which examples.</p>
+            <p>It also helps to practice with your own cases and to agree, before finishing, what each person will apply in their work and who will follow up.</p>
+            <p class="clave">Design training around what the team must achieve, and plan its application from day one.</p>
+          </details>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- About us -->
+  <section class="seccion" id="nosotros">
+    <div class="contenedor nosotros-rejilla">
+      <div class="nosotros-texto">
+        <p class="etiqueta">Who we are</p>
+        <h2 class="titulo-seccion">We are FOURWARD. We drive organizations that want to move forward.</h2>
+        <p>Business consulting and training with an integrated view of strategy, technology and knowledge. We help organizations understand their challenges, identify opportunities, develop capabilities and build paths to evolve.</p>
+        <p class="proposito">Our purpose: to drive organizations that learn, apply and grow.</p>
+        <p>For each project we assemble the team of specialists that fits the scope and the client’s need.</p>
+      </div>
+      <div>
+        <p class="etiqueta" style="margin-bottom:var(--e-4)">How we think</p>
+        <ul class="pensar">
+          <li><span class="icono"><svg aria-hidden="true"><use href="#i-chat"/></svg></span><div><h3>Understand</h3><p>We learn the context before recommending solutions.</p></div></li>
+          <li><span class="icono"><svg aria-hidden="true"><use href="#i-proceso"/></svg></span><div><h3>Connect</h3><p>We bring business, technology and people together.</p></div></li>
+          <li><span class="icono"><svg aria-hidden="true"><use href="#i-estrategia"/></svg></span><div><h3>Activate</h3><p>We promote the practical application of knowledge.</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expert network -->
+  <section class="banda-red" aria-label="Expert network">
+    <div class="contenedor">
+      <div class="red">
+        <div>
+          <p class="etiqueta">Expert network</p>
+          <h3>Are you a specialist in your field? Let’s work together.</h3>
+          <p>We assemble each project team according to its scope. If you have experience in consulting, technology or corporate training, tell us where you could contribute.</p>
+        </div>
+        <a class="boton boton-azul" id="red-enlace" href="#contacto">I want to join <svg aria-hidden="true"><use href="#i-flecha"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="seccion contacto sobre-navy" id="contacto">
+    <div class="contenedor contacto-rejilla">
+      <div class="contacto-texto">
+        <p class="etiqueta">Let’s build the next step</p>
+        <h2>Organizations that move forward turn knowledge into action.</h2>
+        <p class="bajada">Tell us about your challenge. Scope and investment are set out in a tailored commercial proposal.</p>
+        <ul class="contacto-datos">
+          <li>
+            <span class="icono"><svg aria-hidden="true"><use href="#i-correo"/></svg></span>
+            <div><small>Email</small><span class="valor" id="correo-texto"></span><button class="copiar" type="button" id="copiar-correo">Copy</button></div>
+          </li>
+          <li id="fila-whatsapp" hidden>
+            <span class="icono"><svg aria-hidden="true"><use href="#i-chat"/></svg></span>
+            <div><small>WhatsApp</small><a class="valor" id="whatsapp-enlace" target="_blank" rel="noopener"></a></div>
+          </li>
+          <li>
+            <span class="icono"><svg aria-hidden="true"><use href="#i-lugar"/></svg></span>
+            <div><small>Location</small><span class="valor" id="ciudad-texto"></span></div>
+          </li>
+        </ul>
+        <a class="boton boton-linea" id="agenda-enlace" target="_blank" rel="noopener" hidden style="justify-self:start">Book a meeting <svg aria-hidden="true"><use href="#i-flecha"/></svg></a>
+      </div>
+
+      <form class="formulario" id="formulario" novalidate>
+        <h3>Let’s talk about your next challenge</h3>
+        <div class="campo-doble">
+          <div class="campo">
+            <label for="f-nombre">Name</label>
+            <input id="f-nombre" name="nombre" autocomplete="name" required>
+            <span class="error" id="e-nombre" hidden>Enter your name.</span>
+          </div>
+          <div class="campo">
+            <label for="f-empresa">Company</label>
+            <input id="f-empresa" name="empresa" autocomplete="organization">
+          </div>
+        </div>
+        <div class="campo">
+          <label for="f-correo">Email</label>
+          <input id="f-correo" name="correo" type="email" autocomplete="email" inputmode="email" required>
+          <span class="error" id="e-correo" hidden>Enter a valid email, for example name@company.com.</span>
+        </div>
+        <div class="campo">
+          <label for="f-necesidad">What do you need to achieve?</label>
+          <select id="f-necesidad" name="necesidad"></select>
+        </div>
+        <div class="campo">
+          <label for="f-mensaje">Tell us a bit more</label>
+          <textarea id="f-mensaje" name="mensaje" required></textarea>
+          <span class="error" id="e-mensaje" hidden>Tell us in a line or two what you need.</span>
+        </div>
+        <button class="boton boton-azul" type="submit" id="f-enviar">Prepare message <svg aria-hidden="true"><use href="#i-flecha"/></svg></button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="contenedor">
+    <div class="pie-rejilla">
+      <div class="pie-logo">
+        <svg viewBox="0 0 700 740" role="img" aria-label="FOURWARD. Avanza con inteligencia">
+          <use href="#fw-iso" x="50" y="0" width="600" height="461"/>
+          <text x="350" y="612" font-family="Inter, Arial, sans-serif" font-weight="750" font-size="104" letter-spacing="2" text-anchor="middle" fill="url(#fw-tipo)">FOURWARD</text>
+          <text x="350" y="687" font-family="Inter, Arial, sans-serif" font-weight="400" font-size="41" text-anchor="middle" fill="#76CFFF">Avanza con inteligencia</text>
+        </svg>
+      </div>
+      <nav class="pie-enlaces" aria-label="Footer">
+        <a href="#soluciones">Solutions</a>
+        <a href="#formacion">Training</a>
+        <a href="#metodo">How we work</a>
+        <a href="#diagnostico">Assessment</a>
+        <a href="#perspectivas">Insights</a>
+        <a href="#nosotros">About us</a>
+        <a href="#contacto">Contact</a>
+        <a href="app" target="_blank" rel="noopener">Team access · 4Ward Opera</a>
+        <a class="idioma" href="./" hreflang="es" lang="es" data-idioma="es" aria-label="Versión en español" title="Versión en español">ES</a>
+      </nav>
+    </div>
+    <div class="pie-legal">
+      <span>© <span id="anio">2026</span> 4WARD CONSULTING GROUP S.A.S. · Bogotá, Colombia</span>
+      <span>Strategy · Technology · Knowledge</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   CONFIGURACIÓN: lo único que hay que editar para publicar.
+   ============================================================ */
+var CONFIG = {
+  correo: 'admin4ward@gmail.com',   // correo que recibe los mensajes del formulario
+  whatsapp: '573112559544',                         // opcional, con indicativo y sin signos: 573001234567
+  agendaUrl: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ3U9rfNGnrYg5dKfZJoUjz2rdcBoBYxHjVU6c5u8Rcby7bzbrLq98Glacm85s8JSJfirhv5nwcV',                        // opcional: enlace de Google Calendar o Calendly para agendar
+  ciudad: 'Bogotá, Colombia',
+  formEndpoint: '',                     // opcional: URL que recibe el formulario por POST (Formspree, Apps Script)
+  temas: ['Excel for data analysis', 'Power BI', 'Power Automate', 'Applied artificial intelligence',
+          'Digital transformation', 'Machine Learning fundamentals']
+};
+
+var NECESIDADES = [
+  {
+    id: 'equipos', nombre: 'Strengthen teams',
+    titulo: 'Your team needs new capabilities.',
+    texto: 'We design learning experiences around what the team has to achieve at work, not around a generic syllabus.',
+    accion: 'Request a training quote',
+    items: [
+      ['Hands-on courses and workshops', 'Tools, exercises and real business situations.'],
+      ['Masterclasses and talks', 'An executive update on a priority topic.'],
+      ['Corporate training programs', 'Learning paths across several sessions or modules.'],
+      ['Tailored training', 'Content and methodology adapted to your context.']
+    ]
+  },
+  {
+    id: 'reto', nombre: 'Solve an organizational challenge',
+    titulo: 'A problem is holding the organization back.',
+    texto: 'We start by understanding the business. The diagnosis lets us set priorities and an action plan that can actually be carried out.',
+    accion: 'Discuss the challenge',
+    items: [
+      ['Business diagnosis and analysis', 'A reading of the context, gaps and prioritized opportunities.'],
+      ['Strategic planning', 'Objectives, key decisions and roadmaps.'],
+      ['Process improvement', 'Reviewing and optimizing operations.'],
+      ['Metrics and tracking', 'Metrics to guide decisions and measure progress.']
+    ]
+  },
+  {
+    id: 'tecnologia', nombre: 'Explore technology opportunities',
+    titulo: 'You want to use AI and automation wisely.',
+    texto: 'We identify where technology adds real value, prioritize the use cases and support their adoption.',
+    accion: 'Explore opportunities',
+    items: [
+      ['Applied artificial intelligence', 'Practical use cases for the work your company does.'],
+      ['Automation', 'Tasks and workflows that can be simplified.'],
+      ['Process digitalization', 'Tools to improve operations and collaboration.'],
+      ['Strategic use of data', 'Information turned into support for decisions.']
+    ]
+  },
+  {
+    id: 'iniciativa', nombre: 'Develop an initiative',
+    titulo: 'You have a project and need to structure it.',
+    texto: 'We help you move from an idea to a project with a clear scope, owners and results that can be verified.',
+    accion: 'Structure my initiative',
+    items: [
+      ['Defining objectives', 'What progress means and how it will be measured.'],
+      ['Scope and methodology', 'What will be done, what will not, and in which phases.'],
+      ['Deliverables', 'Work products with acceptance criteria.'],
+      ['Management and support', 'Coordination, follow-up and checkpoints.']
+    ]
+  }
+];
+
+(function () {
+  function $(id) { return document.getElementById(id); }
+  function crear(etiqueta, clase, texto) {
+    var el = document.createElement(etiqueta);
+    if (clase) el.className = clase;
+    if (texto != null) el.textContent = texto;
+    return el;
+  }
+  function icono(id) {
+    var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('aria-hidden', 'true');
+    var use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+    use.setAttribute('href', '#' + id);
+    svg.appendChild(use);
+    return svg;
+  }
+
+  /* ---------- Menú en pantallas pequeñas ---------- */
+  var menuBoton = $('menu-boton'), nav = $('navegacion');
+  var angosto = window.matchMedia('(max-width: 960px)');
+  function ajustarMenu() {
+    nav.hidden = angosto.matches;
+    menuBoton.setAttribute('aria-expanded', 'false');
+  }
+  ajustarMenu();
+  if (angosto.addEventListener) angosto.addEventListener('change', ajustarMenu);
+  menuBoton.addEventListener('click', function () {
+    var abrir = nav.hidden;
+    nav.hidden = !abrir;
+    menuBoton.setAttribute('aria-expanded', String(abrir));
+    menuBoton.setAttribute('aria-label', abrir ? 'Close menu' : 'Open menu');
+  });
+  nav.addEventListener('click', function (ev) {
+    if (ev.target.closest('a') && angosto.matches) ajustarMenu();
+  });
+
+  /* ---------- Explorador por necesidad ---------- */
+  var fichas = $('fichas'), panel = $('panel-necesidad'), selector = $('f-necesidad');
+  function pintarPanel(n) {
+    panel.textContent = '';
+    panel.setAttribute('aria-labelledby', 'ficha-' + n.id);
+    var resumen = crear('div', 'panel-resumen');
+    resumen.appendChild(crear('p', 'etiqueta', n.nombre));
+    resumen.appendChild(crear('h3', null, n.titulo));
+    resumen.appendChild(crear('p', null, n.texto));
+    var boton = crear('a', 'boton boton-azul', n.accion + ' ');
+    boton.href = '#contacto';
+    boton.setAttribute('data-necesidad', n.nombre);
+    boton.appendChild(icono('i-flecha'));
+    resumen.appendChild(boton);
+    var lista = crear('ul', 'panel-lista');
+    n.items.forEach(function (it) {
+      var li = crear('li');
+      li.appendChild(icono('i-check'));
+      var caja = crear('div');
+      caja.appendChild(crear('strong', null, it[0]));
+      caja.appendChild(crear('span', null, it[1]));
+      li.appendChild(caja);
+      lista.appendChild(li);
+    });
+    panel.appendChild(resumen);
+    panel.appendChild(lista);
+  }
+  function elegir(indice, enfocar) {
+    Array.prototype.forEach.call(fichas.children, function (b, i) {
+      var activa = i === indice;
+      b.setAttribute('aria-selected', String(activa));
+      b.tabIndex = activa ? 0 : -1;
+      if (activa && enfocar) b.focus();
+    });
+    pintarPanel(NECESIDADES[indice]);
+  }
+  NECESIDADES.forEach(function (n, i) {
+    var b = crear('button', 'ficha', n.nombre);
+    b.type = 'button';
+    b.id = 'ficha-' + n.id;
+    b.setAttribute('role', 'tab');
+    b.setAttribute('aria-controls', 'panel-necesidad');
+    b.addEventListener('click', function () { elegir(i, false); });
+    b.addEventListener('keydown', function (ev) {
+      var paso = ev.key === 'ArrowRight' ? 1 : ev.key === 'ArrowLeft' ? -1 : 0;
+      if (!paso) return;
+      ev.preventDefault();
+      elegir((i + paso + NECESIDADES.length) % NECESIDADES.length, true);
+    });
+    fichas.appendChild(b);
+    selector.appendChild(new Option(n.nombre, n.nombre));
+  });
+  selector.appendChild(new Option('Schedule a conversation', 'Schedule a conversation'));
+  selector.appendChild(new Option('Something else', 'Something else'));
+  elegir(0, false);
+
+  /* Un botón con data-necesidad deja esa opción elegida en el formulario */
+  document.addEventListener('click', function (ev) {
+    var origen = ev.target.closest('[data-necesidad]');
+    if (origen) selector.value = origen.getAttribute('data-necesidad');
+  });
+
+  /* ---------- Data de contacto desde CONFIG ---------- */
+  $('anio').textContent = new Date().getFullYear();
+  $('correo-texto').textContent = CONFIG.correo;
+  $('ciudad-texto').textContent = CONFIG.ciudad;
+  CONFIG.temas.forEach(function (t) { $('temas').appendChild(crear('li', 'chip', t)); });
+  if (CONFIG.whatsapp) {
+    $('fila-whatsapp').hidden = false;
+    $('whatsapp-enlace').href = 'https://wa.me/' + CONFIG.whatsapp;
+    $('whatsapp-enlace').textContent = '+' + CONFIG.whatsapp;
+  }
+  if (CONFIG.agendaUrl) {
+    $('agenda-enlace').hidden = false;
+    $('agenda-enlace').href = CONFIG.agendaUrl;
+  }
+  function copiar(texto, boton) {
+    var listo = function () {
+      var antes = boton.textContent;
+      boton.textContent = 'Copied';
+      setTimeout(function () { boton.textContent = antes; }, 1800);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(texto).then(listo).catch(function () { boton.textContent = 'Select and copy'; });
+    } else { boton.textContent = 'Select and copy'; }
+  }
+  $('copiar-correo').addEventListener('click', function () { copiar(CONFIG.correo, this); });
+
+  /* ---------- Formulario ---------- */
+  var formulario = $('formulario');
+  var contenidoOriginal = null;
+  function marcar(idCampo, idError, mal) {
+    $(idCampo).setAttribute('aria-invalid', String(mal));
+    $(idError).hidden = !mal;
+    return mal;
+  }
+  function mostrarResultado(titulo, detalle, cuerpo, enlaceCorreo) {
+    contenidoOriginal = contenidoOriginal || Array.prototype.slice.call(formulario.children);
+    contenidoOriginal.forEach(function (el) { el.hidden = true; });
+    var caja = crear('div', 'listo');
+    caja.id = 'resultado';
+    caja.setAttribute('role', 'status');
+    caja.appendChild(crear('h3', null, titulo));
+    caja.appendChild(crear('p', 'nota', detalle));
+    if (cuerpo) caja.appendChild(crear('pre', null, cuerpo));
+    var acciones = crear('div', 'listo-acciones');
+    if (enlaceCorreo) {
+      var abrir = crear('a', 'boton boton-azul', 'Open in my email');
+      abrir.href = enlaceCorreo;
+      acciones.appendChild(abrir);
+      var copiarBoton = crear('button', 'boton boton-claro', 'Copy message');
+      copiarBoton.type = 'button';
+      copiarBoton.addEventListener('click', function () { copiar(cuerpo, copiarBoton); });
+      acciones.appendChild(copiarBoton);
+    }
+    var otro = crear('button', 'boton boton-claro', 'Write another message');
+    otro.type = 'button';
+    otro.addEventListener('click', function () {
+      caja.remove();
+      contenidoOriginal.forEach(function (el) { el.hidden = false; });
+      formulario.reset();
+      $('f-nombre').focus();
+    });
+    acciones.appendChild(otro);
+    caja.appendChild(acciones);
+    formulario.appendChild(caja);
+    caja.scrollIntoView({ block: 'nearest' });
+  }
+  formulario.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var d = {
+      nombre: $('f-nombre').value.trim(), empresa: $('f-empresa').value.trim(),
+      correo: $('f-correo').value.trim(), necesidad: selector.value, mensaje: $('f-mensaje').value.trim()
+    };
+    var mal = [
+      marcar('f-nombre', 'e-nombre', !d.nombre),
+      marcar('f-correo', 'e-correo', !/^\S+@\S+\.\S+$/.test(d.correo)),
+      marcar('f-mensaje', 'e-mensaje', d.mensaje.length < 8)
+    ];
+    if (mal.indexOf(true) >= 0) {
+      formulario.querySelector('[aria-invalid="true"]').focus();
+      return;
+    }
+    var asunto = 'Website contact: ' + d.necesidad + (d.empresa ? ' (' + d.empresa + ')' : '');
+    var cuerpo = 'Name: ' + d.nombre + '\n' + (d.empresa ? 'Company: ' + d.empresa + '\n' : '') +
+      'Email: ' + d.correo + '\nNeed: ' + d.necesidad + '\n\n' + d.mensaje;
+
+    if (CONFIG.formEndpoint) {
+      var boton = $('f-enviar');
+      boton.disabled = true;
+      var datos = new FormData();
+      Object.keys(d).forEach(function (k) { datos.append(k, d[k]); });
+      datos.append('_subject', asunto);
+      fetch(CONFIG.formEndpoint, { method: 'POST', body: datos, headers: { Accept: 'application/json' } })
+        .then(function (r) {
+          if (!r.ok) throw new Error('respuesta ' + r.status);
+          mostrarResultado('We received your message', 'Thank you, ' + d.nombre + '. We will reply to ' + d.correo + '.', null, null);
+        })
+        .catch(function () {
+          mostrarResultado('We could not send it from here',
+            'Your message was not lost. Send it from your email to ' + CONFIG.correo + ':', cuerpo,
+            'mailto:' + CONFIG.correo + '?subject=' + encodeURIComponent(asunto) + '&body=' + encodeURIComponent(cuerpo));
+        })
+        .then(function () { boton.disabled = false; });
+      return;
+    }
+    mostrarResultado('Your message is ready',
+      'Open it in your email to send it to ' + CONFIG.correo + ', or copy and paste it wherever you prefer.', cuerpo,
+      'mailto:' + CONFIG.correo + '?subject=' + encodeURIComponent(asunto) + '&body=' + encodeURIComponent(cuerpo));
+  });
+
+  /* ---------- Líneas de avance de la portada ---------- */
+  var lienzo = $('lineas');
+  var ctx = lienzo.getContext && lienzo.getContext('2d');
+  if (!ctx) return;
+  var quieto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var ancho = 0, alto = 0, cuadro = 0;
+  var LINEAS = 14;
+  function medir() {
+    var caja = lienzo.getBoundingClientRect();
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    ancho = caja.width; alto = caja.height;
+    lienzo.width = Math.round(ancho * dpr); lienzo.height = Math.round(alto * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  function dibujar(t) {
+    ctx.clearRect(0, 0, ancho, alto);
+    var brillo = ctx.createRadialGradient(ancho * .78, alto * .42, 0, ancho * .78, alto * .42, Math.max(ancho, alto) * .6);
+    brillo.addColorStop(0, 'rgba(7, 83, 197, .38)');
+    brillo.addColorStop(1, 'rgba(7, 19, 47, 0)');
+    ctx.fillStyle = brillo;
+    ctx.fillRect(0, 0, ancho, alto);
+    for (var i = 0; i < LINEAS; i++) {
+      var p = i / (LINEAS - 1);
+      var trazo = ctx.createLinearGradient(0, 0, ancho, 0);
+      trazo.addColorStop(0, 'rgba(7, 83, 197, 0)');
+      trazo.addColorStop(.45, 'rgba(7, 83, 197, ' + (.16 + p * .3) + ')');
+      trazo.addColorStop(1, 'rgba(0, 201, 238, ' + (.1 + p * .5) + ')');
+      ctx.strokeStyle = trazo;
+      ctx.lineWidth = .8 + p * 1.1;
+      ctx.beginPath();
+      for (var x = -20; x <= ancho + 20; x += 14) {
+        var u = x / ancho;
+        /* suben hacia la derecha: la marca avanza */
+        var base = alto * (1.02 - u * u * (.28 + p * .34)) - p * alto * .2;
+        var onda = Math.sin(u * 3.4 + t * .00035 + i * .42) * (16 + p * 24) * (.3 + u);
+        if (x === -20) ctx.moveTo(x, base + onda); else ctx.lineTo(x, base + onda);
+      }
+      ctx.stroke();
+    }
+  }
+  function ciclo(t) {
+    if (!document.hidden) dibujar(t);
+    cuadro = requestAnimationFrame(ciclo);
+  }
+  medir();
+  dibujar(0);
+  if (!quieto) cuadro = requestAnimationFrame(ciclo);
+  var espera;
+  window.addEventListener('resize', function () {
+    clearTimeout(espera);
+    espera = setTimeout(function () { medir(); dibujar(performance.now()); }, 120);
+  });
+})();
+</script>
+<script>
+/* ---------- Quick assessment y red de expertos ---------- */
+(function () {
+  function $(id) { return document.getElementById(id); }
+  function crear(etiqueta, clase, texto) {
+    var el = document.createElement(etiqueta);
+    if (clase) el.className = clase;
+    if (texto != null) el.textContent = texto;
+    return el;
+  }
+  var PREGUNTAS = [
+    { id: 'estrategia', nombre: 'Strategy', texto: 'This year’s priorities are defined and the team knows them.', linea: 'reto' },
+    { id: 'procesos', nombre: 'Processes', texto: 'Key processes are documented and improved regularly.', linea: 'reto' },
+    { id: 'datos', nombre: 'Data', texto: 'We make decisions with reliable, up-to-date metrics.', linea: 'tecnologia' },
+    { id: 'tecnologia', nombre: 'Technology', texto: 'We use automation or artificial intelligence in day-to-day tasks.', linea: 'tecnologia' },
+    { id: 'personas', nombre: 'People', texto: 'The team is trained in the skills the business needs.', linea: 'equipos' }
+  ];
+  var OPCIONES = ['Not yet', 'Partly', 'Yes, consistently'];
+  var LINEAS = {
+    reto: { servicio: 'Business consulting', necesidad: 'Solve an organizational challenge',
+            texto: 'It makes sense to start by putting priorities and processes in order: a diagnosis and an action plan lay the groundwork for everything else.' },
+    tecnologia: { servicio: 'Applied technology and innovation', necesidad: 'Explore technology opportunities',
+            texto: 'There is room to get more from data and technology: identifying specific use cases is a good first step.' },
+    equipos: { servicio: 'Corporate training', necesidad: 'Strengthen teams',
+            texto: 'The biggest gain may come from team capabilities: tailored training speeds up everything else.' }
+  };
+  var NIVELES = [
+    { hasta: 3, nombre: 'Starting point', texto: 'There are foundations still to build. It is a good moment to define priorities before investing in tools.' },
+    { hasta: 7, nombre: 'Developing', texto: 'You have real progress and some gaps. Focusing on one or two of them usually pays off more than tackling everything.' },
+    { hasta: 10, nombre: 'Established', texto: 'The organization has solid foundations. The challenge now is to sustain them and reach the next level of maturity.' }
+  ];
+
+  var caja = $('diag-preguntas'), form = $('diag'), salida = $('diag-resultado'), aviso = $('diag-aviso');
+  PREGUNTAS.forEach(function (p, i) {
+    var campo = crear('fieldset', 'pregunta');
+    var leyenda = crear('legend');
+    leyenda.appendChild(crear('small', null, (i + 1) + ' of ' + PREGUNTAS.length + ' · ' + p.nombre));
+    leyenda.appendChild(document.createTextNode(p.texto));
+    campo.appendChild(leyenda);
+    var opciones = crear('div', 'opciones');
+    OPCIONES.forEach(function (o, valor) {
+      var label = crear('label');
+      var radio = crear('input');
+      radio.type = 'radio'; radio.name = 'd-' + p.id; radio.value = String(valor);
+      label.appendChild(radio);
+      label.appendChild(crear('span', null, o));
+      opciones.appendChild(label);
+    });
+    campo.appendChild(opciones);
+    caja.appendChild(campo);
+  });
+
+  form.addEventListener('change', function () { aviso.textContent = ''; });
+  form.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var puntajes = {}, total = 0, falta = null;
+    PREGUNTAS.forEach(function (p) {
+      var marcada = form.querySelector('input[name="d-' + p.id + '"]:checked');
+      if (!marcada) { falta = falta || p; return; }
+      puntajes[p.id] = Number(marcada.value);
+      total += puntajes[p.id];
+    });
+    if (falta) {
+      aviso.textContent = 'Still to answer: ' + falta.nombre + '.';
+      form.querySelector('input[name="d-' + falta.id + '"]').focus();
+      return;
+    }
+    var nivel = NIVELES.filter(function (n) { return total <= n.hasta; })[0];
+    /* La línea recomendada es la del puntaje más bajo; si hay empate gana la primera. */
+    var menor = PREGUNTAS.slice().sort(function (a, b) { return puntajes[a.id] - puntajes[b.id]; })[0];
+    var linea = LINEAS[menor.linea];
+    var todoAlto = total === PREGUNTAS.length * 2;
+
+    salida.textContent = '';
+    salida.appendChild(crear('p', 'etiqueta', 'Your result: ' + total + ' of 10'));
+    salida.appendChild(crear('h3', null, nivel.nombre));
+    salida.appendChild(crear('p', null, nivel.texto));
+    var barras = crear('div', 'barras');
+    PREGUNTAS.forEach(function (p) {
+      var fila = crear('div', 'barra-dim');
+      fila.appendChild(crear('span', null, p.nombre));
+      var pista = crear('i'), relleno = crear('b');
+      relleno.style.width = (puntajes[p.id] * 50) + '%';
+      pista.setAttribute('role', 'img');
+      pista.setAttribute('aria-label', p.nombre + ': ' + OPCIONES[puntajes[p.id]]);
+      pista.appendChild(relleno);
+      fila.appendChild(pista);
+      barras.appendChild(fila);
+    });
+    salida.appendChild(barras);
+    salida.appendChild(crear('p', null, todoAlto
+      ? 'No obvious gap shows up. A conversation can help identify the next challenge.'
+      : 'Where to start: ' + linea.servicio + '. ' + linea.texto));
+    var acciones = crear('div', 'resultado-acciones');
+    var hablar = crear('a', 'boton boton-cian', 'Discuss this result');
+    hablar.href = '#contacto';
+    hablar.addEventListener('click', function () {
+      var selector = $('f-necesidad'), mensaje = $('f-mensaje');
+      if (selector) selector.value = todoAlto ? 'Schedule a conversation' : linea.necesidad;
+      if (mensaje && !mensaje.value.trim()) {
+        mensaje.value = 'I took the quick assessment on your site. Result: ' + total + ' of 10 (' + nivel.nombre + ').\n' +
+          PREGUNTAS.map(function (p) { return p.nombre + ': ' + OPCIONES[puntajes[p.id]]; }).join('\n') +
+          '\n\nI would like to talk about ';
+      }
+    });
+    acciones.appendChild(hablar);
+    var otra = crear('button', 'boton boton-linea', 'Start over');
+    otra.type = 'button';
+    otra.addEventListener('click', function () {
+      form.reset(); salida.hidden = true; salida.textContent = '';
+      form.querySelector('input').focus();
+    });
+    acciones.appendChild(otra);
+    salida.appendChild(acciones);
+    salida.hidden = false;
+    salida.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  });
+
+  var red = $('red-enlace');
+  if (red && typeof CONFIG !== 'undefined' && CONFIG.correo) {
+    red.href = 'mailto:' + CONFIG.correo + '?subject=' + encodeURIComponent('FOURWARD expert network') +
+      '&body=' + encodeURIComponent('Name:\nArea of expertise:\nProfile or LinkedIn:\n\nHow I could contribute:\n');
+  }
+})();
+</script>
+<script>
+/* ---------- Cambio de idioma ---------- */
+(function () {
+  function guardar(v) { try { localStorage.setItem('fw_idioma', v); } catch (e) {} }
+  /* El enlace conserva la sección en la que está la persona y recuerda su elección. */
+  document.addEventListener('click', function (ev) {
+    var a = ev.target.closest('a[data-idioma]');
+    if (!a) return;
+    guardar(a.getAttribute('data-idioma'));
+    a.href = a.getAttribute('href').split('#')[0] + location.hash;
+  });
+  var aviso = document.getElementById('aviso-idioma');
+  if (!aviso) return;
+  var elegido = null;
+  try { elegido = localStorage.getItem('fw_idioma'); } catch (e) {}
+  if (!elegido && /^en\b/i.test(navigator.language || '')) aviso.hidden = false;
+  document.getElementById('aviso-cerrar').addEventListener('click', function () { guardar('es'); aviso.hidden = true; });
+})();
+</script>
+</body>
+</html>
