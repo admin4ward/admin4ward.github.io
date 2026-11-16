@@ -340,6 +340,7 @@ T = {
 'Ábrelo en tu correo para enviarlo a ': 'Open it in your email to send it to ',
 ', o cópialo y pégalo donde prefieras.': ', or copy and paste it wherever you prefer.',
 'Estrategia · Tecnología · Conocimiento': 'Strategy · Technology · Knowledge',
+'Avanza con inteligencia': 'Move forward with intelligence',
 }
 # Palabras sueltas: solo como palabra completa
 W = {
