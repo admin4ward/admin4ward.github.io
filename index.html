@@ -361,6 +361,92 @@ button, input, select, textarea { font: inherit; color: inherit; }
   display: flex; flex-wrap: wrap; gap: var(--e-3) var(--e-6); justify-content: space-between; font-size: var(--t-xs);
 }
 
+/* ---------- Entregables del método ---------- */
+.paso .recibes {
+  margin-top: var(--e-2); padding-top: var(--e-3); border-top: 1px dashed var(--linea-navy);
+  color: var(--blanco); font-size: var(--t-sm);
+}
+.paso .recibes b { display: block; font-size: var(--t-xs); letter-spacing: .12em; text-transform: uppercase; color: var(--cian-texto); font-weight: 600; margin-bottom: 2px; }
+.compromisos {
+  margin-top: var(--e-7); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 1px solid var(--linea-navy); border-radius: var(--r-l); overflow: hidden;
+}
+.compromiso { padding: var(--e-5) var(--e-6); display: grid; gap: 6px; align-content: start; }
+.compromiso + .compromiso { border-left: 1px solid var(--linea-navy); }
+.compromiso strong { font-size: var(--t-lg); letter-spacing: -.01em; line-height: 1.25; }
+.compromiso span { color: var(--texto-claro); font-size: var(--t-sm); }
+.enlace-texto { color: var(--azul); font-weight: 600; text-underline-offset: 4px; }
+.enlace-texto:hover { color: var(--azul-oscuro); }
+.pista { margin-top: var(--e-5); color: var(--texto-suave); font-size: var(--t-sm); }
+
+/* ---------- Diagnóstico rápido ---------- */
+.diag-rejilla { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: var(--e-8); align-items: start; }
+.diag-intro { display: grid; gap: var(--e-5); position: sticky; top: calc(var(--alto-barra) + 32px); }
+.diag-tarjeta {
+  background: var(--blanco); border: 1px solid var(--linea); border-radius: var(--r-l);
+  box-shadow: var(--sombra); padding: clamp(20px, 3.4vw, 40px); display: grid; gap: var(--e-5);
+}
+.pregunta { border: 0; padding: 0; margin: 0; min-width: 0; }
+.pregunta + .pregunta { padding-top: var(--e-5); border-top: 1px solid var(--linea); }
+.pregunta legend { float: left; width: 100%; padding: 0; margin-bottom: var(--e-3); font-weight: 600; line-height: 1.4; }
+.pregunta .opciones { clear: both; }
+.pregunta legend small { display: block; font-size: var(--t-xs); letter-spacing: .14em; text-transform: uppercase; color: var(--azul); font-weight: 600; margin-bottom: 4px; }
+.opciones { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--e-2); }
+.opciones label { position: relative; display: block; min-width: 0; }
+.opciones input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.opciones span {
+  display: grid; place-items: center; text-align: center; min-height: 46px; padding: 8px 10px;
+  border: 1.5px solid var(--linea); border-radius: var(--r-s); font-size: var(--t-sm); font-weight: 500;
+  transition: background .2s var(--ease), border-color .2s var(--ease), color .2s var(--ease);
+}
+.opciones label:hover span { border-color: var(--azul); }
+.opciones input:checked + span { background: var(--navy); border-color: var(--navy); color: var(--blanco); }
+.opciones input:focus-visible + span { outline: 3px solid var(--cian); outline-offset: 2px; }
+.diag-pie { display: flex; flex-wrap: wrap; align-items: center; gap: var(--e-4); }
+.diag-pie .nota { flex: 1 1 200px; }
+.resultado { background: var(--navy); color: var(--blanco); border-radius: var(--r-m); padding: var(--e-6); display: grid; gap: var(--e-4); }
+.resultado h3 { font-size: var(--t-xl); }
+.resultado p { color: var(--texto-claro); font-size: var(--t-sm); }
+.resultado .etiqueta { color: var(--cian-texto); }
+.barras { display: grid; gap: var(--e-3); }
+.barra-dim { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: var(--e-3); align-items: center; font-size: var(--t-sm); }
+.barra-dim i { display: block; height: 8px; border-radius: var(--r-full); background: rgba(184, 194, 204, .2); overflow: hidden; }
+.barra-dim i b { display: block; height: 100%; border-radius: inherit; background: var(--cian); transition: width .5s var(--ease); }
+.resultado-acciones { display: flex; flex-wrap: wrap; gap: var(--e-3); }
+
+/* ---------- Perspectivas ---------- */
+.perspectivas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--e-5); align-items: start; }
+.perspectiva {
+  background: var(--blanco); border: 1px solid var(--linea); border-radius: var(--r-l);
+  padding: var(--e-6); display: grid; gap: var(--e-4); align-content: start; border-top: 4px solid var(--azul);
+}
+.perspectiva h3 { font-size: var(--t-xl); line-height: 1.2; }
+.perspectiva > p { color: var(--texto-suave); font-size: var(--t-sm); }
+.perspectiva > p.etiqueta { color: var(--azul); font-size: var(--t-xs); }
+.perspectiva details { border-top: 1px solid var(--linea); padding-top: var(--e-4); }
+.perspectiva summary { cursor: pointer; font-weight: 600; font-size: var(--t-sm); color: var(--azul); list-style: none; display: inline-flex; align-items: center; gap: 8px; }
+.perspectiva summary::-webkit-details-marker { display: none; }
+.perspectiva summary::after { content: "+"; font-size: 1.2em; line-height: 1; }
+.perspectiva details[open] summary::after { content: "–"; }
+.perspectiva details p { margin-top: var(--e-3); font-size: var(--t-sm); color: var(--texto); }
+.perspectiva details p.clave { font-weight: 600; color: var(--navy); border-left: 3px solid var(--cian); padding-left: var(--e-3); }
+
+/* ---------- Red de expertos ---------- */
+.banda-red { padding-bottom: var(--e-9); }
+.red {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--e-5);
+  background: var(--fondo-suave); border: 1px solid var(--linea); border-radius: var(--r-l); padding: clamp(24px, 4vw, 40px);
+}
+.red div { display: grid; gap: var(--e-2); flex: 1 1 420px; min-width: 0; }
+.red h3 { font-size: var(--t-xl); }
+.red p { color: var(--texto-suave); font-size: var(--t-sm); max-width: 62ch; }
+
+@media (min-width: 961px) and (max-width: 1180px) {
+  .navegacion { gap: 18px; }
+  .navegacion a { font-size: .875rem; }
+  .barra .boton { padding: 9px 16px; }
+}
+
 /* ---------- Adaptación ---------- */
 @media (max-width: 960px) {
   :root { --e-9: 80px; --e-8: 48px; }
@@ -374,7 +460,9 @@ button, input, select, textarea { font: inherit; color: inherit; }
   .navegacion .boton { margin-top: var(--e-4); border-bottom: 0; }
   .menu-boton { display: grid; }
   .portada-interior, .contexto-rejilla, .panel, .linea-servicio, .formacion-rejilla,
-  .nosotros-rejilla, .contacto-rejilla { grid-template-columns: minmax(0, 1fr); }
+  .nosotros-rejilla, .contacto-rejilla, .diag-rejilla, .perspectivas, .compromisos { grid-template-columns: minmax(0, 1fr); }
+  .diag-intro { position: static; }
+  .compromiso + .compromiso { border-left: 0; border-top: 1px solid var(--linea-navy); }
   .portada-iso { display: none; }
   .portada .bajada { max-width: 40ch; }
   .contexto-intro { position: static; }
@@ -387,6 +475,9 @@ button, input, select, textarea { font: inherit; color: inherit; }
 @media (max-width: 620px) {
   .experiencia, .campo-doble, .pasos { grid-template-columns: minmax(0, 1fr); }
   .linea-items { columns: 1; }
+  .opciones { grid-template-columns: minmax(0, 1fr); }
+  .barra-dim { grid-template-columns: 84px minmax(0, 1fr); }
+  .resultado-acciones .boton, .red .boton { width: 100%; }
   .portada-acciones .boton, .formulario .boton { width: 100%; }
   .fichas { flex-wrap: nowrap; overflow-x: auto; margin-inline: -20px; padding-inline: 20px; scrollbar-width: none; }
   .fichas::-webkit-scrollbar { display: none; }
@@ -452,6 +543,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
       <a href="#soluciones">Soluciones</a>
       <a href="#formacion">Formación</a>
       <a href="#metodo">Cómo trabajamos</a>
+      <a href="#perspectivas">Perspectivas</a>
       <a href="#nosotros">Nosotros</a>
       <a href="app" target="_blank" rel="noopener">Acceso equipo</a>
       <a class="boton boton-cian" href="#contacto">Hablemos</a>
@@ -546,6 +638,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
       </div>
       <div class="fichas" role="tablist" aria-label="Necesidades" id="fichas"></div>
       <div class="panel" role="tabpanel" id="panel-necesidad" tabindex="0"></div>
+      <p class="pista">¿No tienes claro por dónde empezar? <a class="enlace-texto" href="#diagnostico">Haz el diagnóstico rápido</a>: cinco preguntas, dos minutos.</p>
     </div>
   </section>
 
@@ -663,12 +756,83 @@ button, input, select, textarea { font: inherit; color: inherit; }
         <p class="bajada">Partimos del contexto del cliente para construir intervenciones relevantes y aplicables.</p>
       </div>
       <ol class="pasos">
-        <li class="paso"><h3>Entendemos</h3><p>Escuchamos al cliente, reconocemos sus necesidades y analizamos el contexto del negocio.</p></li>
-        <li class="paso"><h3>Diseñamos</h3><p>Estructuramos una propuesta alineada con objetivos, capacidades y prioridades.</p></li>
-        <li class="paso"><h3>Implementamos</h3><p>Desarrollamos las actividades acordadas y promovemos la aplicación práctica.</p></li>
-        <li class="paso"><h3>Evaluamos</h3><p>Revisamos avances y oportunidades de mejora según el alcance definido.</p></li>
+        <li class="paso"><h3>Entendemos</h3><p>Escuchamos al cliente, reconocemos sus necesidades y analizamos el contexto del negocio.</p><p class="recibes"><b>Recibes</b>Una lectura clara de tu situación y de las oportunidades prioritarias.</p></li>
+        <li class="paso"><h3>Diseñamos</h3><p>Estructuramos una propuesta alineada con objetivos, capacidades y prioridades.</p><p class="recibes"><b>Recibes</b>Una propuesta con objetivos, alcance, entregables e inversión.</p></li>
+        <li class="paso"><h3>Implementamos</h3><p>Desarrollamos las actividades acordadas y promovemos la aplicación práctica.</p><p class="recibes"><b>Recibes</b>Las actividades ejecutadas hombro a hombro con tu equipo.</p></li>
+        <li class="paso"><h3>Evaluamos</h3><p>Revisamos avances y oportunidades de mejora según el alcance definido.</p><p class="recibes"><b>Recibes</b>Un balance de avances y recomendaciones para continuar.</p></li>
       </ol>
+      <div class="compromisos" aria-label="Lo que puedes esperar de nosotros">
+        <div class="compromiso"><strong>Alcance claro desde el inicio</strong><span>Antes de empezar acordamos objetivos, entregables e inversión en una propuesta a tu medida.</span></div>
+        <div class="compromiso"><strong>Trabajo hombro a hombro</strong><span>Construimos las soluciones con las personas que las van a usar, no a espaldas de la operación.</span></div>
+        <div class="compromiso"><strong>Capacidad que se queda</strong><span>Cada intervención busca que tu equipo pueda sostener y continuar lo logrado.</span></div>
+      </div>
       <p class="metodo-cierre">Soluciones relevantes, ejecución organizada y aprendizaje aplicado.</p>
+    </div>
+  </section>
+
+  <!-- Diagnóstico rápido -->
+  <section class="seccion" id="diagnostico">
+    <div class="contenedor diag-rejilla">
+      <div class="diag-intro">
+        <p class="etiqueta">Diagnóstico rápido</p>
+        <h2 class="titulo-seccion">¿Qué tan lista está tu organización para avanzar?</h2>
+        <p class="bajada">Responde cinco afirmaciones sobre tu empresa y recibe una lectura inicial de dónde conviene empezar.</p>
+        <p class="nota">Es una orientación, no reemplaza un diagnóstico empresarial. Tus respuestas no se guardan ni se envían: se calculan en tu navegador.</p>
+      </div>
+      <form class="diag-tarjeta" id="diag" novalidate>
+        <div id="diag-preguntas" style="display:grid;gap:var(--e-5)"></div>
+        <div class="diag-pie">
+          <button class="boton boton-azul" type="submit">Ver mi resultado <svg aria-hidden="true"><use href="#i-flecha"/></svg></button>
+          <p class="nota" id="diag-aviso" role="status"></p>
+        </div>
+        <div class="resultado" id="diag-resultado" role="status" hidden></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Perspectivas -->
+  <section class="seccion seccion-suave" id="perspectivas">
+    <div class="contenedor">
+      <div class="cabecera-seccion">
+        <p class="etiqueta">Perspectivas</p>
+        <h2 class="titulo-seccion">Ideas para decidir mejor.</h2>
+        <p class="bajada">Puntos de vista de nuestro equipo sobre estrategia, tecnología y conocimiento en las organizaciones.</p>
+      </div>
+      <div class="perspectivas">
+        <article class="perspectiva">
+          <p class="etiqueta">Inteligencia artificial</p>
+          <h3>Antes de elegir una herramienta de IA, elige el problema.</h3>
+          <p>Muchas iniciativas de IA empiezan por la tecnología y terminan buscando para qué usarla. El orden contrario da mejores resultados.</p>
+          <details>
+            <summary>Leer la perspectiva</summary>
+            <p>La pregunta útil no es qué puede hacer la inteligencia artificial, sino qué tarea de tu operación consume tiempo, se repite y tiene un resultado que se puede verificar. Ahí suele estar el primer caso de uso.</p>
+            <p>Un buen primer caso es pequeño, tiene un responsable y se puede medir en semanas. Sirve para aprender cómo reacciona el equipo, qué datos hacen falta y qué controles se necesitan antes de ampliar el alcance.</p>
+            <p class="clave">Empieza por un proceso concreto, define cómo sabrás que mejoró y solo entonces elige la herramienta.</p>
+          </details>
+        </article>
+        <article class="perspectiva">
+          <p class="etiqueta">Datos y decisiones</p>
+          <h3>Un indicador que nadie consulta no orienta ninguna decisión.</h3>
+          <p>Los tableros se multiplican con facilidad. Lo difícil es que cada cifra tenga un dueño y una decisión asociada.</p>
+          <details>
+            <summary>Leer la perspectiva</summary>
+            <p>Medir cuesta: alguien captura el dato, alguien lo consolida y alguien lo presenta. Ese esfuerzo solo se justifica cuando el indicador cambia lo que hace la organización.</p>
+            <p>Una prueba sencilla es preguntar, para cada indicador, quién lo revisa, cada cuánto y qué haría distinto si mañana empeorara. Si no hay respuesta, el indicador sobra o está mal definido.</p>
+            <p class="clave">Pocos indicadores, con responsable y con una decisión detrás, valen más que un tablero completo.</p>
+          </details>
+        </article>
+        <article class="perspectiva">
+          <p class="etiqueta">Formación</p>
+          <h3>Una capacitación termina. Una capacidad se queda.</h3>
+          <p>Asistir a un curso no garantiza que el trabajo cambie. La diferencia está en lo que ocurre después de la sesión.</p>
+          <details>
+            <summary>Leer la perspectiva</summary>
+            <p>La formación produce resultados cuando parte de una necesidad del negocio y no de un catálogo de temas. Eso define a quién formar, en qué y con qué ejemplos.</p>
+            <p>También ayuda practicar con casos propios y acordar, antes de terminar, qué va a aplicar cada persona en su trabajo y quién le hará seguimiento.</p>
+            <p class="clave">Diseña la formación a partir de lo que el equipo debe lograr y planea la aplicación desde el primer día.</p>
+          </details>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -689,6 +853,20 @@ button, input, select, textarea { font: inherit; color: inherit; }
           <li><span class="icono"><svg aria-hidden="true"><use href="#i-proceso"/></svg></span><div><h3>Conectar</h3><p>Integramos negocio, tecnología y personas.</p></div></li>
           <li><span class="icono"><svg aria-hidden="true"><use href="#i-estrategia"/></svg></span><div><h3>Activar</h3><p>Promovemos la aplicación práctica del conocimiento.</p></div></li>
         </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Red de expertos -->
+  <section class="banda-red" aria-label="Red de expertos">
+    <div class="contenedor">
+      <div class="red">
+        <div>
+          <p class="etiqueta">Red de expertos</p>
+          <h3>¿Eres especialista en tu campo? Trabajemos juntos.</h3>
+          <p>Conformamos el equipo de cada proyecto según su alcance. Si tienes experiencia en consultoría, tecnología o formación empresarial, cuéntanos en qué podrías aportar.</p>
+        </div>
+        <a class="boton boton-azul" id="red-enlace" href="#contacto">Quiero sumarme <svg aria-hidden="true"><use href="#i-flecha"/></svg></a>
       </div>
     </div>
   </section>
@@ -764,6 +942,8 @@ button, input, select, textarea { font: inherit; color: inherit; }
         <a href="#soluciones">Soluciones</a>
         <a href="#formacion">Formación</a>
         <a href="#metodo">Cómo trabajamos</a>
+        <a href="#diagnostico">Diagnóstico</a>
+        <a href="#perspectivas">Perspectivas</a>
         <a href="#nosotros">Nosotros</a>
         <a href="#contacto">Contacto</a>
         <a href="app" target="_blank" rel="noopener">Acceso equipo · 4Ward Opera</a>
@@ -1100,6 +1280,131 @@ var NECESIDADES = [
     clearTimeout(espera);
     espera = setTimeout(function () { medir(); dibujar(performance.now()); }, 120);
   });
+})();
+</script>
+<script>
+/* ---------- Diagnóstico rápido y red de expertos ---------- */
+(function () {
+  function $(id) { return document.getElementById(id); }
+  function crear(etiqueta, clase, texto) {
+    var el = document.createElement(etiqueta);
+    if (clase) el.className = clase;
+    if (texto != null) el.textContent = texto;
+    return el;
+  }
+  var PREGUNTAS = [
+    { id: 'estrategia', nombre: 'Estrategia', texto: 'Las prioridades del año están definidas y el equipo las conoce.', linea: 'reto' },
+    { id: 'procesos', nombre: 'Procesos', texto: 'Los procesos clave están documentados y se mejoran con regularidad.', linea: 'reto' },
+    { id: 'datos', nombre: 'Datos', texto: 'Tomamos decisiones con indicadores confiables y actualizados.', linea: 'tecnologia' },
+    { id: 'tecnologia', nombre: 'Tecnología', texto: 'Usamos automatización o inteligencia artificial en tareas del día a día.', linea: 'tecnologia' },
+    { id: 'personas', nombre: 'Personas', texto: 'El equipo recibe formación en las habilidades que el negocio necesita.', linea: 'equipos' }
+  ];
+  var OPCIONES = ['Todavía no', 'En parte', 'Sí, de forma estable'];
+  var LINEAS = {
+    reto: { servicio: 'Consultoría empresarial', necesidad: 'Resolver un reto organizacional',
+            texto: 'Conviene empezar por ordenar prioridades y procesos: un diagnóstico y un plan de acción dan la base para todo lo demás.' },
+    tecnologia: { servicio: 'Tecnología e innovación aplicada', necesidad: 'Explorar oportunidades tecnológicas',
+            texto: 'Hay espacio para aprovechar mejor los datos y la tecnología: identificar casos de uso concretos es un buen primer paso.' },
+    equipos: { servicio: 'Formación empresarial', necesidad: 'Fortalecer equipos',
+            texto: 'El mayor avance puede venir de las capacidades del equipo: una formación a la medida acelera lo demás.' }
+  };
+  var NIVELES = [
+    { hasta: 3, nombre: 'Punto de partida', texto: 'Hay bases por construir. Es un buen momento para definir prioridades antes de invertir en herramientas.' },
+    { hasta: 7, nombre: 'En desarrollo', texto: 'Tienes avances reales y algunas brechas. Enfocar el esfuerzo en una o dos de ellas suele rendir más que abarcarlo todo.' },
+    { hasta: 10, nombre: 'Consolidado', texto: 'La organización tiene bases sólidas. El reto ahora es sostenerlas y buscar el siguiente nivel de madurez.' }
+  ];
+
+  var caja = $('diag-preguntas'), form = $('diag'), salida = $('diag-resultado'), aviso = $('diag-aviso');
+  PREGUNTAS.forEach(function (p, i) {
+    var campo = crear('fieldset', 'pregunta');
+    var leyenda = crear('legend');
+    leyenda.appendChild(crear('small', null, (i + 1) + ' de ' + PREGUNTAS.length + ' · ' + p.nombre));
+    leyenda.appendChild(document.createTextNode(p.texto));
+    campo.appendChild(leyenda);
+    var opciones = crear('div', 'opciones');
+    OPCIONES.forEach(function (o, valor) {
+      var label = crear('label');
+      var radio = crear('input');
+      radio.type = 'radio'; radio.name = 'd-' + p.id; radio.value = String(valor);
+      label.appendChild(radio);
+      label.appendChild(crear('span', null, o));
+      opciones.appendChild(label);
+    });
+    campo.appendChild(opciones);
+    caja.appendChild(campo);
+  });
+
+  form.addEventListener('change', function () { aviso.textContent = ''; });
+  form.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var puntajes = {}, total = 0, falta = null;
+    PREGUNTAS.forEach(function (p) {
+      var marcada = form.querySelector('input[name="d-' + p.id + '"]:checked');
+      if (!marcada) { falta = falta || p; return; }
+      puntajes[p.id] = Number(marcada.value);
+      total += puntajes[p.id];
+    });
+    if (falta) {
+      aviso.textContent = 'Falta responder: ' + falta.nombre + '.';
+      form.querySelector('input[name="d-' + falta.id + '"]').focus();
+      return;
+    }
+    var nivel = NIVELES.filter(function (n) { return total <= n.hasta; })[0];
+    /* La línea recomendada es la del puntaje más bajo; si hay empate gana la primera. */
+    var menor = PREGUNTAS.slice().sort(function (a, b) { return puntajes[a.id] - puntajes[b.id]; })[0];
+    var linea = LINEAS[menor.linea];
+    var todoAlto = total === PREGUNTAS.length * 2;
+
+    salida.textContent = '';
+    salida.appendChild(crear('p', 'etiqueta', 'Tu resultado: ' + total + ' de 10'));
+    salida.appendChild(crear('h3', null, nivel.nombre));
+    salida.appendChild(crear('p', null, nivel.texto));
+    var barras = crear('div', 'barras');
+    PREGUNTAS.forEach(function (p) {
+      var fila = crear('div', 'barra-dim');
+      fila.appendChild(crear('span', null, p.nombre));
+      var pista = crear('i'), relleno = crear('b');
+      relleno.style.width = (puntajes[p.id] * 50) + '%';
+      pista.setAttribute('role', 'img');
+      pista.setAttribute('aria-label', p.nombre + ': ' + OPCIONES[puntajes[p.id]]);
+      pista.appendChild(relleno);
+      fila.appendChild(pista);
+      barras.appendChild(fila);
+    });
+    salida.appendChild(barras);
+    salida.appendChild(crear('p', null, todoAlto
+      ? 'No aparece una brecha evidente. Una conversación puede ayudar a identificar el siguiente reto.'
+      : 'Por dónde empezar: ' + linea.servicio + '. ' + linea.texto));
+    var acciones = crear('div', 'resultado-acciones');
+    var hablar = crear('a', 'boton boton-cian', 'Conversar sobre este resultado');
+    hablar.href = '#contacto';
+    hablar.addEventListener('click', function () {
+      var selector = $('f-necesidad'), mensaje = $('f-mensaje');
+      if (selector) selector.value = todoAlto ? 'Agendar una conversación' : linea.necesidad;
+      if (mensaje && !mensaje.value.trim()) {
+        mensaje.value = 'Hice el diagnóstico rápido del sitio. Resultado: ' + total + ' de 10 (' + nivel.nombre + ').\n' +
+          PREGUNTAS.map(function (p) { return p.nombre + ': ' + OPCIONES[puntajes[p.id]]; }).join('\n') +
+          '\n\nMe gustaría conversar sobre ';
+      }
+    });
+    acciones.appendChild(hablar);
+    var otra = crear('button', 'boton boton-linea', 'Responder de nuevo');
+    otra.type = 'button';
+    otra.addEventListener('click', function () {
+      form.reset(); salida.hidden = true; salida.textContent = '';
+      form.querySelector('input').focus();
+    });
+    acciones.appendChild(otra);
+    salida.appendChild(acciones);
+    salida.hidden = false;
+    salida.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  });
+
+  var red = $('red-enlace');
+  if (red && typeof CONFIG !== 'undefined' && CONFIG.correo) {
+    red.href = 'mailto:' + CONFIG.correo + '?subject=' + encodeURIComponent('Red de expertos FOURWARD') +
+      '&body=' + encodeURIComponent('Nombre:\nÁrea de experiencia:\nPerfil o LinkedIn:\n\nCómo podría aportar:\n');
+  }
 })();
 </script>
 </body>
