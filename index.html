@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FOURWARD · Consultoría, formación e IA aplicada</title>
+<meta name="description" content="FOURWARD: estrategia, tecnología y formación para que tu organización convierta lo que sabe en decisiones y resultados. Bogotá, Colombia.">
+<meta name="theme-color" content="#07132F">
+<meta property="og:title" content="FOURWARD · Avanza con inteligencia">
+<meta property="og:description" content="Consultoría empresarial, tecnología aplicada y formación corporativa.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&display=swap">
+<style>
+/* Composición: barra y portada en navy con líneas de avance; cuerpo claro de una
+   columna de 1200px; bloques navy para lo que la marca quiere subrayar. Un solo
+   aspecto visual a propósito: es el sitio institucional y sigue el manual de marca. */
+:root {
+  color-scheme: light;
+  /* Paleta oficial (Manual de identidad 1.1) */
+  --navy: #07132F;
+  --azul: #0753C5;
+  --cian: #00C9EE;
+  --plata: #B8C2CC;
+  --blanco: #FFFFFF;
+  --grafito: #122744;
+  /* Neutros derivados, con sesgo hacia el azul de la marca */
+  --fondo: #FFFFFF;
+  --fondo-suave: #F3F6FB;
+  --navy-2: #0C1D45;
+  --navy-3: #12295C;
+  --texto: #122744;
+  --texto-suave: #4B5C78;
+  --texto-claro: #C9D4E6;
+  --linea: #DCE3EE;
+  --linea-navy: rgba(184, 194, 204, .18);
+  --azul-oscuro: #06439F;
+  --cian-texto: #6FDDF7;
+  /* Tipografía: Inter es la única familia de la marca */
+  --fuente: "Inter", Arial, system-ui, sans-serif;
+  --t-xs: .8125rem;
+  --t-sm: .9375rem;
+  --t-base: 1.0625rem;
+  --t-lg: 1.25rem;
+  --t-xl: clamp(1.375rem, 1.2rem + .7vw, 1.75rem);
+  --t-2xl: clamp(1.875rem, 1.5rem + 1.6vw, 2.75rem);
+  --t-3xl: clamp(2.375rem, 1.6rem + 3.4vw, 4.25rem);
+  /* Espaciado y forma */
+  --e-1: 4px; --e-2: 8px; --e-3: 12px; --e-4: 16px; --e-5: 24px;
+  --e-6: 32px; --e-7: 48px; --e-8: 72px; --e-9: 112px;
+  --r-s: 8px; --r-m: 14px; --r-l: 22px; --r-full: 999px;
+  --sombra: 0 1px 2px rgba(7, 19, 47, .06), 0 10px 28px rgba(7, 19, 47, .07);
+  --sombra-l: 0 4px 10px rgba(7, 19, 47, .08), 0 28px 56px rgba(7, 19, 47, .14);
+  --max: 1200px;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  --alto-barra: 68px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+img, svg { max-width: 100%; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--alto-barra) + 16px); }
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: var(--fuente);
+  font-size: var(--t-base);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px); z-index: 60; background: var(--navy);
+}
+h1, h2, h3, h4, p, ul, ol { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+h1, h2, h3 { text-wrap: balance; letter-spacing: -.022em; line-height: 1.1; font-weight: 700; }
+a { color: inherit; }
+button, input, select, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--cian); outline-offset: 3px; border-radius: 4px; }
+
+.contenedor {
+  width: 100%; max-width: var(--max); margin-inline: auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+.salto {
+  position: absolute; left: 16px; top: -100px; z-index: 100;
+  background: var(--blanco); color: var(--navy); padding: 10px 16px;
+  border-radius: var(--r-s); font-weight: 600;
+}
+.salto:focus { top: calc(env(safe-area-inset-top, 0px) + 12px); }
+
+/* ---------- Piezas compartidas ---------- */
+.etiqueta {
+  font-size: var(--t-xs); font-weight: 600; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--azul);
+}
+.sobre-navy .etiqueta { color: var(--cian-texto); }
+.titulo-seccion { font-size: var(--t-2xl); }
+.bajada { font-size: var(--t-lg); color: var(--texto-suave); max-width: 62ch; line-height: 1.55; }
+.sobre-navy { background: var(--navy); color: var(--blanco); }
+.sobre-navy .bajada { color: var(--texto-claro); }
+.cabecera-seccion { display: grid; gap: var(--e-4); margin-bottom: var(--e-7); }
+.seccion { padding-block: var(--e-9); }
+.seccion-suave { background: var(--fondo-suave); }
+
+.boton {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 50px; padding: 13px 24px; border-radius: var(--r-full);
+  border: 1.5px solid transparent; font-weight: 600; font-size: var(--t-sm);
+  text-decoration: none; cursor: pointer; white-space: nowrap;
+  transition: background .2s var(--ease), border-color .2s var(--ease), color .2s var(--ease), transform .2s var(--ease);
+}
+.boton:active { transform: translateY(1px); }
+.boton svg { width: 18px; height: 18px; flex: none; transition: transform .2s var(--ease); }
+.boton:hover svg { transform: translateX(3px); }
+.boton-cian { background: var(--cian); color: var(--navy); }
+.boton-cian:hover { background: #4FDBF5; }
+.boton-azul { background: var(--azul); color: var(--blanco); }
+.boton-azul:hover { background: var(--azul-oscuro); }
+.boton-linea { border-color: rgba(255, 255, 255, .42); color: var(--blanco); background: transparent; }
+.boton-linea:hover { border-color: var(--blanco); background: rgba(255, 255, 255, .08); }
+.boton-claro { border-color: var(--linea); color: var(--navy); background: var(--blanco); }
+.boton-claro:hover { border-color: var(--azul); color: var(--azul); }
+
+.icono {
+  width: 44px; height: 44px; flex: none; display: grid; place-items: center;
+  border-radius: 12px; background: rgba(7, 83, 197, .09); color: var(--azul);
+}
+.icono svg { width: 22px; height: 22px; }
+.sobre-navy .icono { background: rgba(0, 201, 238, .12); color: var(--cian); }
+
+/* ---------- Barra superior ---------- */
+.barra {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50;
+  background: rgba(7, 19, 47, .94); color: var(--blanco);
+  backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid var(--linea-navy);
+}
+.barra-interior { display: flex; align-items: center; gap: var(--e-5); min-height: var(--alto-barra); }
+.marca { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; margin-right: auto; }
+.marca svg { width: 44px; height: 34px; flex: none; }
+.marca-nombre { font-weight: 750; letter-spacing: .06em; font-size: 1.0625rem; }
+.navegacion { display: flex; align-items: center; gap: var(--e-6); }
+.navegacion a {
+  text-decoration: none; font-size: var(--t-sm); font-weight: 500; color: var(--texto-claro);
+  padding-block: 8px; border-bottom: 2px solid transparent; transition: color .2s, border-color .2s;
+}
+.navegacion a:hover { color: var(--blanco); border-color: var(--cian); }
+.navegacion a.boton, .navegacion a.boton:hover { color: var(--navy); border-color: transparent; }
+.barra .boton { min-height: 42px; padding: 9px 20px; }
+.menu-boton {
+  display: none; width: 44px; height: 44px; border: 1.5px solid var(--linea-navy);
+  border-radius: 12px; background: transparent; color: var(--blanco); cursor: pointer; place-items: center;
+}
+.menu-boton svg { width: 22px; height: 22px; }
+
+/* ---------- Portada ---------- */
+.portada { position: relative; overflow: hidden; }
+.portada canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.portada-interior {
+  position: relative; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+  align-items: center; gap: var(--e-7);
+  padding-block: clamp(56px, 8vw, 104px) clamp(120px, 13vw, 168px);
+}
+.portada-texto { display: grid; gap: var(--e-5); justify-items: start; min-width: 0; }
+.portada h1 { font-size: var(--t-3xl); letter-spacing: -.03em; line-height: 1.04; }
+.portada h1 em { font-style: normal; color: var(--cian); }
+.portada .bajada { font-size: var(--t-xl); line-height: 1.45; max-width: 34ch; }
+.portada-acciones { display: flex; flex-wrap: wrap; gap: var(--e-3); margin-top: var(--e-3); }
+.portada-iso { justify-self: center; width: min(100%, 420px); filter: drop-shadow(0 30px 60px rgba(0, 20, 80, .55)); }
+.portada-iso svg { width: 100%; height: auto; display: block; }
+
+/* Banda de capacidades: monta sobre el borde inferior de la portada */
+.capacidades { position: relative; z-index: 2; margin-top: clamp(-104px, -8vw, -72px); }
+.capacidades-rejilla {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  background: var(--blanco); border: 1px solid var(--linea);
+  border-radius: var(--r-l); box-shadow: var(--sombra-l); overflow: hidden;
+}
+.capacidad { display: grid; gap: var(--e-3); padding: var(--e-6); align-content: start; min-width: 0; }
+.capacidad + .capacidad { border-left: 1px solid var(--linea); }
+.capacidad h3 { font-size: var(--t-lg); letter-spacing: -.01em; }
+.capacidad p { color: var(--texto-suave); font-size: var(--t-sm); }
+
+/* ---------- Contexto ---------- */
+.contexto-rejilla { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--e-8); align-items: start; }
+.contexto-intro { display: grid; gap: var(--e-5); position: sticky; top: calc(var(--alto-barra) + 32px); }
+.conviccion {
+  background: var(--navy); color: var(--blanco); border-radius: var(--r-l);
+  padding: var(--e-6); display: grid; gap: var(--e-3);
+}
+.conviccion p { font-size: var(--t-xl); font-weight: 600; line-height: 1.3; letter-spacing: -.015em; }
+.conviccion .etiqueta { color: var(--cian-texto); }
+.retos { display: grid; gap: var(--e-3); }
+.reto {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--e-4);
+  padding: var(--e-5); border: 1px solid var(--linea); border-radius: var(--r-m); background: var(--blanco);
+}
+.reto h3 { font-size: var(--t-base); letter-spacing: 0; line-height: 1.3; margin-bottom: 4px; }
+.reto p { color: var(--texto-suave); font-size: var(--t-sm); }
+
+/* ---------- Explorador por necesidad ---------- */
+.fichas { display: flex; flex-wrap: wrap; gap: var(--e-2); margin-bottom: var(--e-5); }
+.ficha {
+  border: 1.5px solid var(--linea); background: var(--blanco); color: var(--texto);
+  border-radius: var(--r-full); padding: 11px 20px; font-weight: 600; font-size: var(--t-sm);
+  cursor: pointer; transition: background .2s var(--ease), border-color .2s var(--ease), color .2s var(--ease);
+}
+.ficha:hover { border-color: var(--azul); color: var(--azul); }
+.ficha[aria-selected="true"] { background: var(--navy); border-color: var(--navy); color: var(--blanco); }
+.panel {
+  display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: var(--e-7);
+  background: var(--blanco); border: 1px solid var(--linea); border-radius: var(--r-l);
+  padding: clamp(24px, 4vw, 48px); box-shadow: var(--sombra);
+}
+.panel-resumen { display: grid; gap: var(--e-4); align-content: start; justify-items: start; }
+.panel-resumen h3 { font-size: var(--t-xl); }
+.panel-resumen p { color: var(--texto-suave); }
+.panel-lista { display: grid; gap: 0; align-content: start; }
+.panel-lista li {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--e-3);
+  padding-block: var(--e-4); border-top: 1px solid var(--linea);
+}
+.panel-lista li:first-child { border-top: 0; padding-top: 0; }
+.panel-lista svg { width: 20px; height: 20px; color: var(--azul); margin-top: 3px; }
+.panel-lista strong { display: block; font-weight: 600; line-height: 1.35; }
+.panel-lista span { color: var(--texto-suave); font-size: var(--t-sm); }
+
+/* ---------- Soluciones ---------- */
+.lineas { display: grid; gap: var(--e-5); }
+.linea-servicio {
+  display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: var(--e-7);
+  padding: clamp(24px, 4vw, 48px); border-radius: var(--r-l);
+  background: var(--blanco); border: 1px solid var(--linea);
+}
+.linea-servicio.sobre-navy { background: var(--navy); border-color: var(--navy); }
+.linea-cabeza { display: grid; gap: var(--e-4); align-content: start; }
+.linea-cabeza h3 { font-size: var(--t-xl); }
+.linea-cabeza .lema { font-weight: 600; color: var(--azul); }
+.sobre-navy .linea-cabeza .lema { color: var(--cian-texto); }
+.linea-cabeza p { color: var(--texto-suave); }
+.sobre-navy .linea-cabeza p { color: var(--texto-claro); }
+.linea-cabeza .cierre {
+  margin-top: var(--e-3); padding-top: var(--e-4); border-top: 1px solid var(--linea);
+  font-size: var(--t-sm); font-weight: 500; color: var(--texto);
+}
+.sobre-navy .linea-cabeza .cierre { border-color: var(--linea-navy); color: var(--blanco); }
+.linea-items { columns: 2; column-gap: var(--e-6); }
+.linea-items li { display: grid; gap: 4px; padding-left: var(--e-4); border-left: 2px solid var(--azul); break-inside: avoid; margin-bottom: var(--e-5); }
+.linea-items li:last-child { margin-bottom: 0; }
+.sobre-navy .linea-items li { border-color: var(--cian); }
+.linea-items strong { font-weight: 600; line-height: 1.35; }
+.linea-items span { color: var(--texto-suave); font-size: var(--t-sm); }
+.sobre-navy .linea-items span { color: var(--texto-claro); }
+
+/* ---------- Formación ---------- */
+.formacion-rejilla { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: var(--e-7); align-items: start; }
+.experiencia { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--e-4); }
+.momento {
+  display: grid; gap: var(--e-3); align-content: start; padding: var(--e-5);
+  background: var(--blanco); border: 1px solid var(--linea); border-radius: var(--r-m);
+}
+.momento h3 { font-size: var(--t-lg); letter-spacing: -.01em; }
+.momento p { color: var(--texto-suave); font-size: var(--t-sm); }
+.formacion-datos { display: grid; gap: var(--e-5); }
+.dato { display: grid; gap: var(--e-3); padding-bottom: var(--e-5); border-bottom: 1px solid var(--linea); }
+.dato:last-child { border-bottom: 0; padding-bottom: 0; }
+.dato h3 { font-size: var(--t-base); letter-spacing: 0; }
+.chips { display: flex; flex-wrap: wrap; gap: var(--e-2); }
+.chip {
+  padding: 7px 14px; border-radius: var(--r-full); background: var(--blanco);
+  border: 1px solid var(--linea); font-size: var(--t-sm); font-weight: 500;
+}
+.nota { font-size: var(--t-sm); color: var(--texto-suave); }
+
+/* ---------- Método ---------- */
+.pasos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--e-5); counter-reset: paso; }
+.paso { display: grid; gap: var(--e-3); align-content: start; position: relative; padding-top: var(--e-6); border-top: 1px solid var(--linea-navy); }
+.paso::before {
+  counter-increment: paso; content: counter(paso, decimal-leading-zero);
+  position: absolute; top: -1px; left: 0; transform: translateY(-50%);
+  background: var(--cian); color: var(--navy); font-weight: 700; font-size: var(--t-xs);
+  font-variant-numeric: tabular-nums; padding: 5px 11px; border-radius: var(--r-full);
+}
+.paso h3 { font-size: var(--t-xl); }
+.paso p { color: var(--texto-claro); font-size: var(--t-sm); }
+.metodo-cierre { margin-top: var(--e-7); font-weight: 600; font-size: var(--t-lg); color: var(--cian-texto); }
+
+/* ---------- Nosotros ---------- */
+.nosotros-rejilla { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--e-8); align-items: start; }
+.nosotros-texto { display: grid; gap: var(--e-5); }
+.nosotros-texto p { color: var(--texto-suave); max-width: 58ch; }
+.proposito {
+  border-left: 3px solid var(--azul); padding-left: var(--e-5);
+  font-size: var(--t-xl); font-weight: 600; line-height: 1.3; letter-spacing: -.015em; color: var(--navy);
+}
+.pensar { display: grid; gap: var(--e-3); }
+.pensar li {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--e-4); align-items: start;
+  padding: var(--e-5); background: var(--fondo-suave); border-radius: var(--r-m);
+}
+.pensar h3 { font-size: var(--t-lg); letter-spacing: -.01em; margin-bottom: 4px; }
+.pensar p { color: var(--texto-suave); font-size: var(--t-sm); }
+
+/* ---------- Contacto ---------- */
+.contacto { position: relative; overflow: hidden; }
+.contacto-rejilla { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--e-8); align-items: start; }
+.contacto-texto { display: grid; gap: var(--e-5); }
+.contacto-texto h2 { font-size: var(--t-2xl); }
+.contacto-datos { display: grid; gap: var(--e-4); margin-top: var(--e-3); }
+.contacto-datos li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--e-4); align-items: center; }
+.contacto-datos small { display: block; font-size: var(--t-xs); letter-spacing: .12em; text-transform: uppercase; color: var(--cian-texto); font-weight: 600; }
+.contacto-datos .valor { font-weight: 600; overflow-wrap: anywhere; user-select: all; }
+.copiar {
+  margin-left: 10px; border: 1px solid var(--linea-navy); background: transparent; color: var(--texto-claro);
+  border-radius: var(--r-full); padding: 3px 12px; font-size: var(--t-xs); font-weight: 600; cursor: pointer;
+}
+.copiar:hover { color: var(--blanco); border-color: var(--blanco); }
+.formulario {
+  background: var(--blanco); color: var(--texto); border-radius: var(--r-l);
+  padding: clamp(22px, 3.4vw, 40px); display: grid; gap: var(--e-4); box-shadow: var(--sombra-l);
+}
+.formulario h3 { font-size: var(--t-xl); }
+.campo { display: grid; gap: 6px; min-width: 0; }
+.campo-doble { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--e-4); }
+.campo label { font-size: var(--t-sm); font-weight: 600; }
+.campo input, .campo select, .campo textarea {
+  width: 100%; min-height: 48px; padding: 11px 14px; border: 1.5px solid var(--linea);
+  border-radius: var(--r-s); background: var(--blanco); color: var(--texto);
+  transition: border-color .2s, box-shadow .2s;
+}
+.campo textarea { min-height: 112px; resize: vertical; }
+.campo input:focus, .campo select:focus, .campo textarea:focus {
+  outline: none; border-color: var(--azul); box-shadow: 0 0 0 4px rgba(7, 83, 197, .14);
+}
+.campo .error { color: #B3261E; font-size: var(--t-xs); font-weight: 500; }
+.campo [aria-invalid="true"] { border-color: #B3261E; }
+.formulario .boton { justify-self: start; }
+.listo { display: grid; gap: var(--e-4); }
+.listo pre {
+  margin: 0; padding: var(--e-4); background: var(--fondo-suave); border-radius: var(--r-s);
+  font-family: var(--fuente); font-size: var(--t-sm); white-space: pre-wrap; overflow-wrap: anywhere;
+  max-height: 220px; overflow: auto; border: 1px solid var(--linea);
+}
+.listo-acciones { display: flex; flex-wrap: wrap; gap: var(--e-3); }
+
+/* ---------- Pie ---------- */
+.pie { background: #050D22; color: var(--texto-claro); padding-block: var(--e-7) var(--e-6); }
+.pie-rejilla { display: flex; flex-wrap: wrap; gap: var(--e-7); align-items: flex-end; justify-content: space-between; }
+.pie-logo svg { width: 190px; height: auto; display: block; }
+.pie-enlaces { display: flex; flex-wrap: wrap; gap: var(--e-5); font-size: var(--t-sm); }
+.pie-enlaces a { text-decoration: none; }
+.pie-enlaces a:hover { color: var(--blanco); text-decoration: underline; text-underline-offset: 4px; }
+.pie-legal {
+  margin-top: var(--e-6); padding-top: var(--e-5); border-top: 1px solid var(--linea-navy);
+  display: flex; flex-wrap: wrap; gap: var(--e-3) var(--e-6); justify-content: space-between; font-size: var(--t-xs);
+}
+
+/* ---------- Adaptación ---------- */
+@media (max-width: 960px) {
+  :root { --e-9: 80px; --e-8: 48px; }
+  .navegacion {
+    position: absolute; left: 0; right: 0; top: 100%; flex-direction: column; align-items: stretch; gap: 0;
+    background: var(--navy); border-bottom: 1px solid var(--linea-navy);
+    padding: var(--e-2) max(20px, env(safe-area-inset-right, 0px)) var(--e-5) max(20px, env(safe-area-inset-left, 0px));
+  }
+  .navegacion[hidden] { display: none; }
+  .navegacion a { padding-block: 14px; border-bottom: 1px solid var(--linea-navy); font-size: var(--t-base); }
+  .navegacion .boton { margin-top: var(--e-4); border-bottom: 0; }
+  .menu-boton { display: grid; }
+  .portada-interior, .contexto-rejilla, .panel, .linea-servicio, .formacion-rejilla,
+  .nosotros-rejilla, .contacto-rejilla { grid-template-columns: minmax(0, 1fr); }
+  .portada-iso { display: none; }
+  .portada .bajada { max-width: 40ch; }
+  .contexto-intro { position: static; }
+  .pasos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--e-7) var(--e-5); }
+  .capacidades-rejilla { grid-template-columns: minmax(0, 1fr); }
+  .capacidad + .capacidad { border-left: 0; border-top: 1px solid var(--linea); }
+  .capacidad { grid-template-columns: auto minmax(0, 1fr); column-gap: var(--e-4); padding: var(--e-5); }
+  .capacidad .icono { grid-row: span 2; }
+}
+@media (max-width: 620px) {
+  .experiencia, .campo-doble, .pasos { grid-template-columns: minmax(0, 1fr); }
+  .linea-items { columns: 1; }
+  .portada-acciones .boton, .formulario .boton { width: 100%; }
+  .fichas { flex-wrap: nowrap; overflow-x: auto; margin-inline: -20px; padding-inline: 20px; scrollbar-width: none; }
+  .fichas::-webkit-scrollbar { display: none; }
+  .ficha { flex: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- Isotipo oficial (vector maestro). Se define una vez y se reutiliza. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="fw-top" x1="0%" y1="100%" x2="85%" y2="10%"><stop stop-color="#071e5a"/><stop offset=".52" stop-color="#0753c5"/><stop offset="1" stop-color="#00c9ee"/></linearGradient>
+    <linearGradient id="fw-base" x1="0%" y1="0%" x2="85%" y2="100%"><stop stop-color="#061946"/><stop offset=".58" stop-color="#0750bb"/><stop offset="1" stop-color="#04bafa"/></linearGradient>
+    <linearGradient id="fw-ribbon" x1="0%" y1="90%" x2="100%" y2="15%"><stop stop-color="#0737a3"/><stop offset=".38" stop-color="#075ee5"/><stop offset=".56" stop-color="#789ecb"/><stop offset=".76" stop-color="#c4d0df"/><stop offset="1" stop-color="#f4f7fb"/></linearGradient>
+    <linearGradient id="fw-silver" x1="0%" y1="100%" x2="80%" y2="0%"><stop stop-color="#6b84a8"/><stop offset=".38" stop-color="#b9c4d4"/><stop offset=".8" stop-color="#e7ebf2"/><stop offset="1" stop-color="#ffffff"/></linearGradient>
+    <linearGradient id="fw-cyan" x1="0%" y1="0%" x2="100%" y2="0%"><stop stop-color="#00d9f5"/><stop offset="1" stop-color="#4ecfff"/></linearGradient>
+    <linearGradient id="fw-tipo" x1="0%" y1="0%" x2="0%" y2="100%"><stop stop-color="#FFFFFF"/><stop offset="1" stop-color="#B4C1D6"/></linearGradient>
+  </defs>
+  <symbol id="fw-iso" viewBox="0 0 740 568">
+    <path d="M72 532 L170 147 Q180 45 240 45 L644 45 L593 113 L343 113 Q308 113 299 146 L264 269 Q224 314 187 385 L145 504 Q136 531 107 532 Z" fill="url(#fw-top)"/>
+    <path d="M72 532 L169 147 Q180 45 240 45 L260 45 Q207 57 199 133 L141 366 L107 505 Q103 525 72 532Z" fill="#042b83" opacity=".62"/>
+    <path d="M72 532 L126 329 Q142 281 194 251 L251 223 Q212 278 192 342 L159 483 Q147 532 107 532 Z" fill="url(#fw-base)"/>
+    <path d="M160 532 Q194 526 210 489 L251 358 Q263 317 309 305 L549 305 L520 368 L326 368 Q282 368 270 405 L236 496 Q222 532 187 532Z" fill="url(#fw-silver)"/>
+    <path d="M111 445 Q154 334 246 284 Q331 222 441 223 L550 223 L557 179 L650 253 L547 337 L544 295 L424 295 Q320 295 255 339 Q187 386 137 491 L113 513 Z" fill="url(#fw-ribbon)"/>
+    <path d="M112 444 Q153 332 246 284 Q330 223 441 223 L550 223 Q352 219 250 302 Q168 367 112 444Z" fill="url(#fw-cyan)"/>
+    <path d="M113 513 Q182 386 255 339 Q320 295 424 295 L544 295 Q362 290 260 356 Q191 400 137 491Z" fill="#043caa" opacity=".65"/>
+    <g stroke="#00d9f8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <path d="M205 202 L205 150 L290 81 L444 81"/><path d="M235 229 L235 167 L296 121 L394 121"/><path d="M181 286 L181 236"/>
+    </g>
+    <g fill="#00d9f8"><circle cx="205" cy="202" r="12"/><circle cx="205" cy="150" r="12"/><circle cx="290" cy="81" r="12"/><circle cx="444" cy="81" r="13"/><circle cx="235" cy="229" r="11"/><circle cx="394" cy="121" r="11"/><circle cx="181" cy="236" r="10"/></g>
+  </symbol>
+  <symbol id="i-flecha" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-estrategia" viewBox="0 0 24 24"><path d="M4 18L10 12l4 4 6-8M15 8h5v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-tecnologia" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4"/></g></symbol>
+  <symbol id="i-conocimiento" viewBox="0 0 24 24"><path d="M12 6.5C10 5 7.5 4.5 4 4.5v13c3.5 0 6 .5 8 2 2-1.5 4.500-2 8-2v-13c-3.500 0-6 .5-8 2zM12 6.500v13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-mercado" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.500v17M3.500 12h17M6 6.500c3.500 2.500 8.500 2.500 12 0M6 17.500c3.500-2.500 8.500-2.500 12 0"/></g></symbol>
+  <symbol id="i-proceso" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h10a4 4 0 010 8H8"/><path d="M11 12l-3 3 3 3M4 4v6"/></g></symbol>
+  <symbol id="i-equipo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.500" r="3"/><path d="M3.500 19c0-3 2.500-5 5.500-5s5.500 2 5.500 5"/><circle cx="17" cy="9.500" r="2.300"/><path d="M16.500 14.200c2.400.2 4 1.800 4 4.300"/></g></symbol>
+  <symbol id="i-correo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.500" y="5.500" width="17" height="13" rx="2"/><path d="M4 7l8 6 8-6"/></g></symbol>
+  <symbol id="i-lugar" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.200 7-11.500a7 7 0 10-14 0C5 14.800 12 21 12 21z"/><circle cx="12" cy="9.500" r="2.500"/></g></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M20 11.500a8 8 0 01-11.800 7L4 20l1.500-4.200A8 8 0 1120 11.500z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+</svg>
+
+<a class="salto" href="#contenido">Saltar al contenido</a>
+
+<header class="barra">
+  <div class="contenedor barra-interior">
+    <a class="marca" href="#inicio" aria-label="FOURWARD, inicio">
+      <svg viewBox="0 0 740 568" aria-hidden="true"><use href="#fw-iso"/></svg>
+      <span class="marca-nombre">FOURWARD</span>
+    </a>
+    <button class="menu-boton" id="menu-boton" type="button" aria-expanded="false" aria-controls="navegacion" aria-label="Abrir menú">
+      <svg aria-hidden="true"><use href="#i-menu"/></svg>
+    </button>
+    <nav class="navegacion" id="navegacion" aria-label="Principal">
+      <a href="#soluciones">Soluciones</a>
+      <a href="#formacion">Formación</a>
+      <a href="#metodo">Cómo trabajamos</a>
+      <a href="#nosotros">Nosotros</a>
+      <a class="boton boton-cian" href="#contacto">Hablemos</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenido">
+
+  <!-- Portada -->
+  <section class="portada sobre-navy" id="inicio">
+    <canvas id="lineas" aria-hidden="true"></canvas>
+    <div class="contenedor portada-interior">
+      <div class="portada-texto">
+        <p class="etiqueta">Consultoría · Formación · IA aplicada</p>
+        <h1>Conocimiento que impulsa <em>crecimiento.</em></h1>
+        <p class="bajada">Estrategia, tecnología y formación para que tu organización convierta lo que sabe en decisiones y resultados.</p>
+        <div class="portada-acciones">
+          <a class="boton boton-cian" href="#soluciones">Conoce nuestras soluciones <svg aria-hidden="true"><use href="#i-flecha"/></svg></a>
+          <a class="boton boton-linea" href="#contacto">Hablemos de tu desafío</a>
+        </div>
+      </div>
+      <div class="portada-iso" aria-hidden="true">
+        <svg viewBox="0 0 740 568"><use href="#fw-iso"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Capacidades -->
+  <section class="capacidades" aria-label="Nuestras tres capacidades">
+    <div class="contenedor">
+      <div class="capacidades-rejilla">
+        <article class="capacidad">
+          <span class="icono"><svg aria-hidden="true"><use href="#i-estrategia"/></svg></span>
+          <h3>Estrategia</h3>
+          <p>Dirección clara y decisiones con criterio: convertimos un desafío en un plan de acción.</p>
+        </article>
+        <article class="capacidad">
+          <span class="icono"><svg aria-hidden="true"><use href="#i-tecnologia"/></svg></span>
+          <h3>Tecnología</h3>
+          <p>Inteligencia artificial, automatización y datos elegidos por su utilidad para el negocio.</p>
+        </article>
+        <article class="capacidad">
+          <span class="icono"><svg aria-hidden="true"><use href="#i-conocimiento"/></svg></span>
+          <h3>Conocimiento</h3>
+          <p>Formación aplicada para que las capacidades del equipo se conviertan en acción.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contexto -->
+  <section class="seccion" id="contexto">
+    <div class="contenedor contexto-rejilla">
+      <div class="contexto-intro">
+        <p class="etiqueta">El contexto</p>
+        <h2 class="titulo-seccion">El mundo empresarial cambia. La manera de avanzar también.</h2>
+        <p class="bajada">Las organizaciones necesitan responder con inteligencia a desafíos cada vez más complejos.</p>
+        <div class="conviccion">
+          <span class="etiqueta">Nuestra convicción</span>
+          <p>Hoy no basta con tener información. Hay que convertirla en decisiones y acción.</p>
+        </div>
+      </div>
+      <ul class="retos">
+        <li class="reto">
+          <span class="icono"><svg aria-hidden="true"><use href="#i-mercado"/></svg></span>
+          <div><h3>Competitividad</h3><p>Mercados dinámicos y decisiones que requieren mayor claridad.</p></div>
+        </li>
+        <li class="reto">
+          <span class="icono"><svg aria-hidden="true"><use href="#i-proceso"/></svg></span>
+          <div><h3>Productividad</h3><p>Procesos que necesitan evolucionar y aprovechar mejor sus recursos.</p></div>
+        </li>
+        <li class="reto">
+          <span class="icono"><svg aria-hidden="true"><use href="#i-tecnologia"/></svg></span>
+          <div><h3>Transformación digital</h3><p>Tecnologías que abren oportunidades, pero exigen adaptación.</p></div>
+        </li>
+        <li class="reto">
+          <span class="icono"><svg aria-hidden="true"><use href="#i-equipo"/></svg></span>
+          <div><h3>Capacidades del equipo</h3><p>Conocimiento y habilidades que deben actualizarse constantemente.</p></div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Explorador por necesidad -->
+  <section class="seccion seccion-suave" id="necesidad">
+    <div class="contenedor">
+      <div class="cabecera-seccion">
+        <p class="etiqueta">Cómo trabajamos contigo</p>
+        <h2 class="titulo-seccion">¿Qué necesitas lograr?</h2>
+        <p class="bajada">El punto de partida es tu desafío. Elige el que más se parece al tuyo y mira cómo lo abordamos.</p>
+      </div>
+      <div class="fichas" role="tablist" aria-label="Necesidades" id="fichas"></div>
+      <div class="panel" role="tabpanel" id="panel-necesidad" tabindex="0"></div>
+    </div>
+  </section>
+
+  <!-- Soluciones -->
+  <section class="seccion" id="soluciones">
+    <div class="contenedor">
+      <div class="cabecera-seccion">
+        <p class="etiqueta">Nuestras soluciones</p>
+        <h2 class="titulo-seccion">Servicios para desafíos reales.</h2>
+        <p class="bajada">Tres líneas de servicio que pueden integrarse o desarrollarse de manera independiente.</p>
+      </div>
+      <div class="lineas">
+        <article class="linea-servicio">
+          <div class="linea-cabeza">
+            <span class="icono"><svg aria-hidden="true"><use href="#i-estrategia"/></svg></span>
+            <h3>Consultoría empresarial</h3>
+            <p class="lema">Diagnóstico, dirección y ejecución</p>
+            <p>Acompañamiento para comprender desafíos, estructurar estrategias y activar iniciativas de mejora.</p>
+            <p class="cierre">Para empresas que necesitan convertir un desafío en un plan de acción.</p>
+          </div>
+          <ul class="linea-items">
+            <li><strong>Diagnóstico y análisis empresarial</strong><span>Lectura del contexto, identificación de brechas y priorización de oportunidades.</span></li>
+            <li><strong>Planeación y estructuración estratégica</strong><span>Definición de objetivos, decisiones clave y rutas de trabajo.</span></li>
+            <li><strong>Productividad y mejora de procesos</strong><span>Revisión de procesos e identificación de oportunidades de optimización.</span></li>
+            <li><strong>Gestión de proyectos e iniciativas</strong><span>Estructuración, acompañamiento y coordinación de proyectos.</span></li>
+            <li><strong>Indicadores y seguimiento de resultados</strong><span>Diseño y lectura de métricas para orientar decisiones y mejoras.</span></li>
+          </ul>
+        </article>
+
+        <article class="linea-servicio sobre-navy">
+          <div class="linea-cabeza">
+            <span class="icono"><svg aria-hidden="true"><use href="#i-tecnologia"/></svg></span>
+            <h3>Tecnología e innovación aplicada</h3>
+            <p class="lema">Herramientas con sentido empresarial</p>
+            <p>Herramientas tecnológicas seleccionadas por su utilidad para los procesos y objetivos del negocio.</p>
+            <p class="cierre">Identificar el potencial. Priorizar su valor. Acompañar la adopción.</p>
+          </div>
+          <ul class="linea-items">
+            <li><strong>Inteligencia artificial aplicada al negocio</strong><span>Identificación de casos de uso y oportunidades prácticas para el trabajo empresarial.</span></li>
+            <li><strong>Oportunidades de automatización</strong><span>Exploración de tareas y flujos susceptibles de simplificación.</span></li>
+            <li><strong>Digitalización y optimización de procesos</strong><span>Análisis de herramientas para mejorar la operación y la colaboración.</span></li>
+            <li><strong>Uso estratégico de datos e información</strong><span>Enfoques para interpretar información y apoyar decisiones.</span></li>
+            <li><strong>Adopción de nuevas herramientas</strong><span>Acompañamiento para integrar nuevas formas de trabajar.</span></li>
+          </ul>
+        </article>
+
+        <article class="linea-servicio">
+          <div class="linea-cabeza">
+            <span class="icono"><svg aria-hidden="true"><use href="#i-conocimiento"/></svg></span>
+            <h3>Formación empresarial</h3>
+            <p class="lema">Conocimiento que se pone en práctica</p>
+            <p>Experiencias de aprendizaje para fortalecer habilidades y capacidades relevantes para cada organización.</p>
+            <p class="cierre">Cada programa define objetivos, público, temas y entregables específicos.</p>
+          </div>
+          <ul class="linea-items">
+            <li><strong>Conferencias empresariales</strong><span>Sesiones de inspiración, actualización y reflexión aplicada.</span></li>
+            <li><strong>Masterclass especializadas</strong><span>Profundización ejecutiva en un tema prioritario.</span></li>
+            <li><strong>Cursos y talleres prácticos</strong><span>Aprendizaje orientado a herramientas, ejercicios y situaciones de negocio.</span></li>
+            <li><strong>Programas de formación corporativa</strong><span>Rutas de aprendizaje articuladas en varios encuentros o módulos.</span></li>
+            <li><strong>Capacitación a la medida</strong><span>Contenidos y metodología ajustados al contexto del cliente.</span></li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formación -->
+  <section class="seccion seccion-suave" id="formacion">
+    <div class="contenedor">
+      <div class="cabecera-seccion">
+        <p class="etiqueta">Formación</p>
+        <h2 class="titulo-seccion">Aprender, aplicar y transformar.</h2>
+        <p class="bajada">Una propuesta de formación responde a una necesidad concreta del negocio, no solo a un temario. Así se vive cada programa.</p>
+      </div>
+      <div class="formacion-rejilla">
+        <div class="experiencia">
+          <article class="momento">
+            <p class="etiqueta">Explorar</p>
+            <h3>Contexto y conceptos clave</h3>
+            <p>Partimos de la realidad del equipo para dar criterio y tomar mejores decisiones.</p>
+          </article>
+          <article class="momento">
+            <p class="etiqueta">Practicar</p>
+            <h3>Herramientas y ejercicios</h3>
+            <p>Casos, demostraciones y dinámicas relacionadas con el trabajo de cada día.</p>
+          </article>
+          <article class="momento">
+            <p class="etiqueta">Transferir</p>
+            <h3>Aplicación al trabajo</h3>
+            <p>Prácticas que se pueden trasladar a la operación al terminar la sesión.</p>
+          </article>
+        </div>
+        <div class="formacion-datos">
+          <div class="dato">
+            <h3>Temas en los que formamos</h3>
+            <ul class="chips" id="temas"></ul>
+          </div>
+          <div class="dato">
+            <h3>Modalidad</h3>
+            <ul class="chips"><li class="chip">Presencial</li><li class="chip">Virtual</li><li class="chip">Híbrida</li></ul>
+          </div>
+          <p class="nota">Los temas y su profundidad se ajustan al alcance de cada programa.</p>
+          <a class="boton boton-azul" href="#contacto" data-necesidad="Fortalecer equipos" style="justify-self:start">Cotizar una formación <svg aria-hidden="true"><use href="#i-flecha"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Método -->
+  <section class="seccion sobre-navy" id="metodo">
+    <div class="contenedor">
+      <div class="cabecera-seccion">
+        <p class="etiqueta">Nuestra forma de trabajar</p>
+        <h2 class="titulo-seccion">Del entendimiento a la acción.</h2>
+        <p class="bajada">Partimos del contexto del cliente para construir intervenciones relevantes y aplicables.</p>
+      </div>
+      <ol class="pasos">
+        <li class="paso"><h3>Entendemos</h3><p>Escuchamos al cliente, reconocemos sus necesidades y analizamos el contexto del negocio.</p></li>
+        <li class="paso"><h3>Diseñamos</h3><p>Estructuramos una propuesta alineada con objetivos, capacidades y prioridades.</p></li>
+        <li class="paso"><h3>Implementamos</h3><p>Desarrollamos las actividades acordadas y promovemos la aplicación práctica.</p></li>
+        <li class="paso"><h3>Evaluamos</h3><p>Revisamos avances y oportunidades de mejora según el alcance definido.</p></li>
+      </ol>
+      <p class="metodo-cierre">Soluciones relevantes, ejecución organizada y aprendizaje aplicado.</p>
+    </div>
+  </section>
+
+  <!-- Nosotros -->
+  <section class="seccion" id="nosotros">
+    <div class="contenedor nosotros-rejilla">
+      <div class="nosotros-texto">
+        <p class="etiqueta">Quiénes somos</p>
+        <h2 class="titulo-seccion">Somos FOURWARD. Impulsamos organizaciones que quieren avanzar.</h2>
+        <p>Consultoría y formación empresarial con una visión integral de estrategia, tecnología y conocimiento. Acompañamos a las organizaciones a comprender sus retos, identificar oportunidades, desarrollar capacidades y construir caminos de evolución.</p>
+        <p class="proposito">Nuestro propósito: impulsar organizaciones que aprenden, aplican y crecen.</p>
+        <p>Para cada proyecto conformamos el equipo de especialistas según el alcance y la necesidad del cliente.</p>
+      </div>
+      <div>
+        <p class="etiqueta" style="margin-bottom:var(--e-4)">Nuestra forma de pensar</p>
+        <ul class="pensar">
+          <li><span class="icono"><svg aria-hidden="true"><use href="#i-chat"/></svg></span><div><h3>Entender</h3><p>Conocemos el contexto antes de recomendar soluciones.</p></div></li>
+          <li><span class="icono"><svg aria-hidden="true"><use href="#i-proceso"/></svg></span><div><h3>Conectar</h3><p>Integramos negocio, tecnología y personas.</p></div></li>
+          <li><span class="icono"><svg aria-hidden="true"><use href="#i-estrategia"/></svg></span><div><h3>Activar</h3><p>Promovemos la aplicación práctica del conocimiento.</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section class="seccion contacto sobre-navy" id="contacto">
+    <div class="contenedor contacto-rejilla">
+      <div class="contacto-texto">
+        <p class="etiqueta">Construyamos el siguiente paso</p>
+        <h2>Las organizaciones que avanzan convierten el conocimiento en acción.</h2>
+        <p class="bajada">Cuéntanos tu desafío. El alcance y la inversión se precisan en una propuesta comercial personalizada.</p>
+        <ul class="contacto-datos">
+          <li>
+            <span class="icono"><svg aria-hidden="true"><use href="#i-correo"/></svg></span>
+            <div><small>Correo</small><span class="valor" id="correo-texto"></span><button class="copiar" type="button" id="copiar-correo">Copiar</button></div>
+          </li>
+          <li id="fila-whatsapp" hidden>
+            <span class="icono"><svg aria-hidden="true"><use href="#i-chat"/></svg></span>
+            <div><small>WhatsApp</small><a class="valor" id="whatsapp-enlace" target="_blank" rel="noopener"></a></div>
+          </li>
+          <li>
+            <span class="icono"><svg aria-hidden="true"><use href="#i-lugar"/></svg></span>
+            <div><small>Ubicación</small><span class="valor" id="ciudad-texto"></span></div>
+          </li>
+        </ul>
+        <a class="boton boton-linea" id="agenda-enlace" target="_blank" rel="noopener" hidden style="justify-self:start">Agendar una reunión <svg aria-hidden="true"><use href="#i-flecha"/></svg></a>
+      </div>
+
+      <form class="formulario" id="formulario" novalidate>
+        <h3>Hablemos de tu próximo desafío</h3>
+        <div class="campo-doble">
+          <div class="campo">
+            <label for="f-nombre">Nombre</label>
+            <input id="f-nombre" name="nombre" autocomplete="name" required>
+            <span class="error" id="e-nombre" hidden>Escribe tu nombre.</span>
+          </div>
+          <div class="campo">
+            <label for="f-empresa">Empresa</label>
+            <input id="f-empresa" name="empresa" autocomplete="organization">
+          </div>
+        </div>
+        <div class="campo">
+          <label for="f-correo">Correo</label>
+          <input id="f-correo" name="correo" type="email" autocomplete="email" inputmode="email" required>
+          <span class="error" id="e-correo" hidden>Escribe un correo válido, por ejemplo nombre@empresa.com.</span>
+        </div>
+        <div class="campo">
+          <label for="f-necesidad">¿Qué necesitas lograr?</label>
+          <select id="f-necesidad" name="necesidad"></select>
+        </div>
+        <div class="campo">
+          <label for="f-mensaje">Cuéntanos un poco más</label>
+          <textarea id="f-mensaje" name="mensaje" required></textarea>
+          <span class="error" id="e-mensaje" hidden>Cuéntanos en una o dos líneas qué necesitas.</span>
+        </div>
+        <button class="boton boton-azul" type="submit" id="f-enviar">Preparar mensaje <svg aria-hidden="true"><use href="#i-flecha"/></svg></button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="contenedor">
+    <div class="pie-rejilla">
+      <div class="pie-logo">
+        <svg viewBox="0 0 700 740" role="img" aria-label="FOURWARD. Avanza con inteligencia">
+          <use href="#fw-iso" x="50" y="0" width="600" height="461"/>
+          <text x="350" y="612" font-family="Inter, Arial, sans-serif" font-weight="750" font-size="104" letter-spacing="2" text-anchor="middle" fill="url(#fw-tipo)">FOURWARD</text>
+          <text x="350" y="687" font-family="Inter, Arial, sans-serif" font-weight="400" font-size="41" text-anchor="middle" fill="#76CFFF">Avanza con inteligencia</text>
+        </svg>
+      </div>
+      <nav class="pie-enlaces" aria-label="Pie de página">
+        <a href="#soluciones">Soluciones</a>
+        <a href="#formacion">Formación</a>
+        <a href="#metodo">Cómo trabajamos</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+    <div class="pie-legal">
+      <span>© <span id="anio">2026</span> 4WARD CONSULTING GROUP S.A.S. · Bogotá, Colombia</span>
+      <span>Estrategia · Tecnología · Conocimiento</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   CONFIGURACIÓN: lo único que hay que editar para publicar.
+   ============================================================ */
+var CONFIG = {
+  correo: 'admin4ward@gmail.com',   // correo que recibe los mensajes del formulario
+  whatsapp: '573112559544',                         // opcional, con indicativo y sin signos: 573001234567
+  agendaUrl: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ3U9rfNGnrYg5dKfZJoUjz2rdcBoBYxHjVU6c5u8Rcby7bzbrLq98Glacm85s8JSJfirhv5nwcV',                        // opcional: enlace de Google Calendar o Calendly para agendar
+  ciudad: 'Bogotá, Colombia',
+  formEndpoint: '',                     // opcional: URL que recibe el formulario por POST (Formspree, Apps Script)
+  temas: ['Excel para análisis de datos', 'Power BI', 'Power Automate', 'Inteligencia artificial aplicada',
+          'Transformación digital', 'Fundamentos de Machine Learning']
+};
+
+var NECESIDADES = [
+  {
+    id: 'equipos', nombre: 'Fortalecer equipos',
+    titulo: 'Tu equipo necesita nuevas capacidades.',
+    texto: 'Diseñamos experiencias de aprendizaje a partir de lo que el equipo debe lograr en su trabajo, no de un temario genérico.',
+    accion: 'Cotizar una formación',
+    items: [
+      ['Cursos y talleres prácticos', 'Herramientas, ejercicios y situaciones reales de negocio.'],
+      ['Masterclass y conferencias', 'Actualización ejecutiva en un tema prioritario.'],
+      ['Programas de formación corporativa', 'Rutas de aprendizaje en varios encuentros o módulos.'],
+      ['Capacitación a la medida', 'Contenidos y metodología ajustados a tu contexto.']
+    ]
+  },
+  {
+    id: 'reto', nombre: 'Resolver un reto organizacional',
+    titulo: 'Hay un problema que frena a la organización.',
+    texto: 'Empezamos por entender el negocio. Con el diagnóstico definimos prioridades y un plan de acción que se pueda ejecutar.',
+    accion: 'Conversar sobre el reto',
+    items: [
+      ['Diagnóstico y análisis empresarial', 'Lectura del contexto, brechas y oportunidades priorizadas.'],
+      ['Planeación estratégica', 'Objetivos, decisiones clave y rutas de trabajo.'],
+      ['Mejora de procesos', 'Revisión y optimización de la operación.'],
+      ['Indicadores y seguimiento', 'Métricas para orientar decisiones y medir el avance.']
+    ]
+  },
+  {
+    id: 'tecnologia', nombre: 'Explorar oportunidades tecnológicas',
+    titulo: 'Quieres aprovechar la IA y la automatización con criterio.',
+    texto: 'Identificamos dónde la tecnología aporta valor real, priorizamos los casos de uso y acompañamos su adopción.',
+    accion: 'Explorar oportunidades',
+    items: [
+      ['Inteligencia artificial aplicada', 'Casos de uso prácticos para el trabajo de tu empresa.'],
+      ['Automatización', 'Tareas y flujos que se pueden simplificar.'],
+      ['Digitalización de procesos', 'Herramientas para mejorar la operación y la colaboración.'],
+      ['Uso estratégico de datos', 'Información convertida en apoyo para decidir.']
+    ]
+  },
+  {
+    id: 'iniciativa', nombre: 'Desarrollar una iniciativa',
+    titulo: 'Tienes un proyecto y necesitas estructurarlo.',
+    texto: 'Te ayudamos a pasar de la idea a un proyecto con alcance claro, responsables y resultados que se puedan verificar.',
+    accion: 'Estructurar mi iniciativa',
+    items: [
+      ['Definición de objetivos', 'Qué significa avanzar y cómo se va a medir.'],
+      ['Alcance y metodología', 'Qué se hará, qué no, y en qué fases.'],
+      ['Entregables', 'Productos de trabajo con criterio de aceptación.'],
+      ['Gestión y acompañamiento', 'Coordinación, seguimiento y puntos de control.']
+    ]
+  }
+];
+
+(function () {
+  function $(id) { return document.getElementById(id); }
+  function crear(etiqueta, clase, texto) {
+    var el = document.createElement(etiqueta);
+    if (clase) el.className = clase;
+    if (texto != null) el.textContent = texto;
+    return el;
+  }
+  function icono(id) {
+    var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('aria-hidden', 'true');
+    var use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+    use.setAttribute('href', '#' + id);
+    svg.appendChild(use);
+    return svg;
+  }
+
+  /* ---------- Menú en pantallas pequeñas ---------- */
+  var menuBoton = $('menu-boton'), nav = $('navegacion');
+  var angosto = window.matchMedia('(max-width: 960px)');
+  function ajustarMenu() {
+    nav.hidden = angosto.matches;
+    menuBoton.setAttribute('aria-expanded', 'false');
+  }
+  ajustarMenu();
+  if (angosto.addEventListener) angosto.addEventListener('change', ajustarMenu);
+  menuBoton.addEventListener('click', function () {
+    var abrir = nav.hidden;
+    nav.hidden = !abrir;
+    menuBoton.setAttribute('aria-expanded', String(abrir));
+    menuBoton.setAttribute('aria-label', abrir ? 'Cerrar menú' : 'Abrir menú');
+  });
+  nav.addEventListener('click', function (ev) {
+    if (ev.target.closest('a') && angosto.matches) ajustarMenu();
+  });
+
+  /* ---------- Explorador por necesidad ---------- */
+  var fichas = $('fichas'), panel = $('panel-necesidad'), selector = $('f-necesidad');
+  function pintarPanel(n) {
+    panel.textContent = '';
+    panel.setAttribute('aria-labelledby', 'ficha-' + n.id);
+    var resumen = crear('div', 'panel-resumen');
+    resumen.appendChild(crear('p', 'etiqueta', n.nombre));
+    resumen.appendChild(crear('h3', null, n.titulo));
+    resumen.appendChild(crear('p', null, n.texto));
+    var boton = crear('a', 'boton boton-azul', n.accion + ' ');
+    boton.href = '#contacto';
+    boton.setAttribute('data-necesidad', n.nombre);
+    boton.appendChild(icono('i-flecha'));
+    resumen.appendChild(boton);
+    var lista = crear('ul', 'panel-lista');
+    n.items.forEach(function (it) {
+      var li = crear('li');
+      li.appendChild(icono('i-check'));
+      var caja = crear('div');
+      caja.appendChild(crear('strong', null, it[0]));
+      caja.appendChild(crear('span', null, it[1]));
+      li.appendChild(caja);
+      lista.appendChild(li);
+    });
+    panel.appendChild(resumen);
+    panel.appendChild(lista);
+  }
+  function elegir(indice, enfocar) {
+    Array.prototype.forEach.call(fichas.children, function (b, i) {
+      var activa = i === indice;
+      b.setAttribute('aria-selected', String(activa));
+      b.tabIndex = activa ? 0 : -1;
+      if (activa && enfocar) b.focus();
+    });
+    pintarPanel(NECESIDADES[indice]);
+  }
+  NECESIDADES.forEach(function (n, i) {
+    var b = crear('button', 'ficha', n.nombre);
+    b.type = 'button';
+    b.id = 'ficha-' + n.id;
+    b.setAttribute('role', 'tab');
+    b.setAttribute('aria-controls', 'panel-necesidad');
+    b.addEventListener('click', function () { elegir(i, false); });
+    b.addEventListener('keydown', function (ev) {
+      var paso = ev.key === 'ArrowRight' ? 1 : ev.key === 'ArrowLeft' ? -1 : 0;
+      if (!paso) return;
+      ev.preventDefault();
+      elegir((i + paso + NECESIDADES.length) % NECESIDADES.length, true);
+    });
+    fichas.appendChild(b);
+    selector.appendChild(new Option(n.nombre, n.nombre));
+  });
+  selector.appendChild(new Option('Agendar una conversación', 'Agendar una conversación'));
+  selector.appendChild(new Option('Otro tema', 'Otro tema'));
+  elegir(0, false);
+
+  /* Un botón con data-necesidad deja esa opción elegida en el formulario */
+  document.addEventListener('click', function (ev) {
+    var origen = ev.target.closest('[data-necesidad]');
+    if (origen) selector.value = origen.getAttribute('data-necesidad');
+  });
+
+  /* ---------- Datos de contacto desde CONFIG ---------- */
+  $('anio').textContent = new Date().getFullYear();
+  $('correo-texto').textContent = CONFIG.correo;
+  $('ciudad-texto').textContent = CONFIG.ciudad;
+  CONFIG.temas.forEach(function (t) { $('temas').appendChild(crear('li', 'chip', t)); });
+  if (CONFIG.whatsapp) {
+    $('fila-whatsapp').hidden = false;
+    $('whatsapp-enlace').href = 'https://wa.me/' + CONFIG.whatsapp;
+    $('whatsapp-enlace').textContent = '+' + CONFIG.whatsapp;
+  }
+  if (CONFIG.agendaUrl) {
+    $('agenda-enlace').hidden = false;
+    $('agenda-enlace').href = CONFIG.agendaUrl;
+  }
+  function copiar(texto, boton) {
+    var listo = function () {
+      var antes = boton.textContent;
+      boton.textContent = 'Copiado';
+      setTimeout(function () { boton.textContent = antes; }, 1800);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(texto).then(listo).catch(function () { boton.textContent = 'Selecciona y copia'; });
+    } else { boton.textContent = 'Selecciona y copia'; }
+  }
+  $('copiar-correo').addEventListener('click', function () { copiar(CONFIG.correo, this); });
+
+  /* ---------- Formulario ---------- */
+  var formulario = $('formulario');
+  var contenidoOriginal = null;
+  function marcar(idCampo, idError, mal) {
+    $(idCampo).setAttribute('aria-invalid', String(mal));
+    $(idError).hidden = !mal;
+    return mal;
+  }
+  function mostrarResultado(titulo, detalle, cuerpo, enlaceCorreo) {
+    contenidoOriginal = contenidoOriginal || Array.prototype.slice.call(formulario.children);
+    contenidoOriginal.forEach(function (el) { el.hidden = true; });
+    var caja = crear('div', 'listo');
+    caja.id = 'resultado';
+    caja.setAttribute('role', 'status');
+    caja.appendChild(crear('h3', null, titulo));
+    caja.appendChild(crear('p', 'nota', detalle));
+    if (cuerpo) caja.appendChild(crear('pre', null, cuerpo));
+    var acciones = crear('div', 'listo-acciones');
+    if (enlaceCorreo) {
+      var abrir = crear('a', 'boton boton-azul', 'Abrir en mi correo');
+      abrir.href = enlaceCorreo;
+      acciones.appendChild(abrir);
+      var copiarBoton = crear('button', 'boton boton-claro', 'Copiar mensaje');
+      copiarBoton.type = 'button';
+      copiarBoton.addEventListener('click', function () { copiar(cuerpo, copiarBoton); });
+      acciones.appendChild(copiarBoton);
+    }
+    var otro = crear('button', 'boton boton-claro', 'Escribir otro mensaje');
+    otro.type = 'button';
+    otro.addEventListener('click', function () {
+      caja.remove();
+      contenidoOriginal.forEach(function (el) { el.hidden = false; });
+      formulario.reset();
+      $('f-nombre').focus();
+    });
+    acciones.appendChild(otro);
+    caja.appendChild(acciones);
+    formulario.appendChild(caja);
+    caja.scrollIntoView({ block: 'nearest' });
+  }
+  formulario.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var d = {
+      nombre: $('f-nombre').value.trim(), empresa: $('f-empresa').value.trim(),
+      correo: $('f-correo').value.trim(), necesidad: selector.value, mensaje: $('f-mensaje').value.trim()
+    };
+    var mal = [
+      marcar('f-nombre', 'e-nombre', !d.nombre),
+      marcar('f-correo', 'e-correo', !/^\S+@\S+\.\S+$/.test(d.correo)),
+      marcar('f-mensaje', 'e-mensaje', d.mensaje.length < 8)
+    ];
+    if (mal.indexOf(true) >= 0) {
+      formulario.querySelector('[aria-invalid="true"]').focus();
+      return;
+    }
+    var asunto = 'Contacto web: ' + d.necesidad + (d.empresa ? ' (' + d.empresa + ')' : '');
+    var cuerpo = 'Nombre: ' + d.nombre + '\n' + (d.empresa ? 'Empresa: ' + d.empresa + '\n' : '') +
+      'Correo: ' + d.correo + '\nNecesidad: ' + d.necesidad + '\n\n' + d.mensaje;
+
+    if (CONFIG.formEndpoint) {
+      var boton = $('f-enviar');
+      boton.disabled = true;
+      var datos = new FormData();
+      Object.keys(d).forEach(function (k) { datos.append(k, d[k]); });
+      datos.append('_subject', asunto);
+      fetch(CONFIG.formEndpoint, { method: 'POST', body: datos, headers: { Accept: 'application/json' } })
+        .then(function (r) {
+          if (!r.ok) throw new Error('respuesta ' + r.status);
+          mostrarResultado('Recibimos tu mensaje', 'Gracias, ' + d.nombre + '. Te responderemos al correo ' + d.correo + '.', null, null);
+        })
+        .catch(function () {
+          mostrarResultado('No pudimos enviarlo desde aquí',
+            'Tu mensaje no se perdió. Envíalo desde tu correo a ' + CONFIG.correo + ':', cuerpo,
+            'mailto:' + CONFIG.correo + '?subject=' + encodeURIComponent(asunto) + '&body=' + encodeURIComponent(cuerpo));
+        })
+        .then(function () { boton.disabled = false; });
+      return;
+    }
+    mostrarResultado('Tu mensaje está listo',
+      'Ábrelo en tu correo para enviarlo a ' + CONFIG.correo + ', o cópialo y pégalo donde prefieras.', cuerpo,
+      'mailto:' + CONFIG.correo + '?subject=' + encodeURIComponent(asunto) + '&body=' + encodeURIComponent(cuerpo));
+  });
+
+  /* ---------- Líneas de avance de la portada ---------- */
+  var lienzo = $('lineas');
+  var ctx = lienzo.getContext && lienzo.getContext('2d');
+  if (!ctx) return;
+  var quieto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var ancho = 0, alto = 0, cuadro = 0;
+  var LINEAS = 14;
+  function medir() {
+    var caja = lienzo.getBoundingClientRect();
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    ancho = caja.width; alto = caja.height;
+    lienzo.width = Math.round(ancho * dpr); lienzo.height = Math.round(alto * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  function dibujar(t) {
+    ctx.clearRect(0, 0, ancho, alto);
+    var brillo = ctx.createRadialGradient(ancho * .78, alto * .42, 0, ancho * .78, alto * .42, Math.max(ancho, alto) * .6);
+    brillo.addColorStop(0, 'rgba(7, 83, 197, .38)');
+    brillo.addColorStop(1, 'rgba(7, 19, 47, 0)');
+    ctx.fillStyle = brillo;
+    ctx.fillRect(0, 0, ancho, alto);
+    for (var i = 0; i < LINEAS; i++) {
+      var p = i / (LINEAS - 1);
+      var trazo = ctx.createLinearGradient(0, 0, ancho, 0);
+      trazo.addColorStop(0, 'rgba(7, 83, 197, 0)');
+      trazo.addColorStop(.45, 'rgba(7, 83, 197, ' + (.16 + p * .3) + ')');
+      trazo.addColorStop(1, 'rgba(0, 201, 238, ' + (.1 + p * .5) + ')');
+      ctx.strokeStyle = trazo;
+      ctx.lineWidth = .8 + p * 1.1;
+      ctx.beginPath();
+      for (var x = -20; x <= ancho + 20; x += 14) {
+        var u = x / ancho;
+        /* suben hacia la derecha: la marca avanza */
+        var base = alto * (1.02 - u * u * (.28 + p * .34)) - p * alto * .2;
+        var onda = Math.sin(u * 3.4 + t * .00035 + i * .42) * (16 + p * 24) * (.3 + u);
+        if (x === -20) ctx.moveTo(x, base + onda); else ctx.lineTo(x, base + onda);
+      }
+      ctx.stroke();
+    }
+  }
+  function ciclo(t) {
+    if (!document.hidden) dibujar(t);
+    cuadro = requestAnimationFrame(ciclo);
+  }
+  medir();
+  dibujar(0);
+  if (!quieto) cuadro = requestAnimationFrame(ciclo);
+  var espera;
+  window.addEventListener('resize', function () {
+    clearTimeout(espera);
+    espera = setTimeout(function () { medir(); dibujar(performance.now()); }, 120);
+  });
+})();
+</script>
+</body>
+</html>
